@@ -1,0 +1,275 @@
+
+import { FC, ReactNode, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { Menu, X } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
+
+interface MainLayoutProps {
+  children: ReactNode;
+}
+
+const MainLayout: FC<MainLayoutProps> = ({ children }) => {
+  const location = useLocation();
+  const isMobile = useIsMobile();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
+  const isActive = (path: string): boolean => {
+    return location.pathname === path;
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="flex items-center justify-between h-16 md:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center">
+              <span className="text-2xl font-serif font-bold tracking-tight text-jewelry-black">
+                REDSTONE <span className="text-jewelry-gold">JEWELRY</span>
+              </span>
+            </Link>
+
+            {/* Navigation - Desktop */}
+            <nav className="hidden md:flex items-center space-x-6">
+              <Link 
+                to="/" 
+                className={`text-sm font-medium transition-colors hover:text-jewelry-gold ${
+                  isActive('/') ? 'text-jewelry-gold' : 'text-jewelry-black'
+                }`}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/products" 
+                className={`text-sm font-medium transition-colors hover:text-jewelry-gold ${
+                  isActive('/products') || location.pathname.startsWith('/products/') 
+                    ? 'text-jewelry-gold' 
+                    : 'text-jewelry-black'
+                }`}
+              >
+                Collection
+              </Link>
+              <Link 
+                to="/appointment" 
+                className={`text-sm font-medium transition-colors hover:text-jewelry-gold ${
+                  isActive('/appointment') ? 'text-jewelry-gold' : 'text-jewelry-black'
+                }`}
+              >
+                Book Appointment
+              </Link>
+              <Link 
+                to="/about" 
+                className={`text-sm font-medium transition-colors hover:text-jewelry-gold ${
+                  isActive('/about') ? 'text-jewelry-gold' : 'text-jewelry-black'
+                }`}
+              >
+                About Us
+              </Link>
+              <Link to="/admin/login">
+                <Button 
+                  variant="outline" 
+                  className="ml-4 border-jewelry-gold text-jewelry-gold hover:bg-jewelry-gold hover:text-white transition-colors"
+                >
+                  Admin Portal
+                </Button>
+              </Link>
+            </nav>
+
+            {/* Mobile menu button */}
+            <button 
+              className="md:hidden p-2 text-jewelry-black rounded-md hover:bg-gray-100 focus:outline-none"
+              onClick={toggleMobileMenu}
+              aria-label="Toggle menu"
+            >
+              {mobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile navigation menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-b border-gray-200 py-4">
+            <div className="container mx-auto px-4">
+              <nav className="flex flex-col space-y-4">
+                <Link 
+                  to="/" 
+                  className={`text-sm font-medium transition-colors px-2 py-2 rounded-md ${
+                    isActive('/') 
+                      ? 'text-jewelry-gold bg-gray-50' 
+                      : 'text-jewelry-black hover:text-jewelry-gold hover:bg-gray-50'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Home
+                </Link>
+                <Link 
+                  to="/products" 
+                  className={`text-sm font-medium transition-colors px-2 py-2 rounded-md ${
+                    isActive('/products') || location.pathname.startsWith('/products/') 
+                      ? 'text-jewelry-gold bg-gray-50' 
+                      : 'text-jewelry-black hover:text-jewelry-gold hover:bg-gray-50'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Collection
+                </Link>
+                <Link 
+                  to="/appointment" 
+                  className={`text-sm font-medium transition-colors px-2 py-2 rounded-md ${
+                    isActive('/appointment') 
+                      ? 'text-jewelry-gold bg-gray-50' 
+                      : 'text-jewelry-black hover:text-jewelry-gold hover:bg-gray-50'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Book Appointment
+                </Link>
+                <Link 
+                  to="/about" 
+                  className={`text-sm font-medium transition-colors px-2 py-2 rounded-md ${
+                    isActive('/about') 
+                      ? 'text-jewelry-gold bg-gray-50' 
+                      : 'text-jewelry-black hover:text-jewelry-gold hover:bg-gray-50'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  About Us
+                </Link>
+                <Link 
+                  to="/admin/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Button 
+                    variant="outline" 
+                    className="w-full border-jewelry-gold text-jewelry-gold hover:bg-jewelry-gold hover:text-white transition-colors"
+                  >
+                    Admin Portal
+                  </Button>
+                </Link>
+              </nav>
+            </div>
+          </div>
+        )}
+      </header>
+
+      {/* Main content */}
+      <main className="flex-1">
+        {children}
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-jewelry-black text-white">
+        <div className="container mx-auto px-4 py-12 md:px-6 md:py-16">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+            {/* Company info */}
+            <div>
+              <h3 className="mb-4 text-lg font-serif font-bold text-jewelry-gold">
+                REDSTONE JEWELRY
+              </h3>
+              <p className="mb-4 text-sm text-gray-300">
+                Exquisite jewelry crafted with precision and passion, 
+                offering timeless elegance for every occasion.
+              </p>
+              <div className="flex space-x-4">
+                {/* Social media icons would go here */}
+                <a href="#" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                  <span className="sr-only">Facebook</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                  <span className="sr-only">Instagram</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                  </svg>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                  <span className="sr-only">Twitter</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+            {/* Quick links */}
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-white">Quick Links</h3>
+              <ul className="space-y-2 text-sm">
+                <li>
+                  <Link to="/products" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                    Our Collection
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/appointment" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                    Book an Appointment
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                    Terms & Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link to="#" className="text-gray-300 hover:text-jewelry-gold transition-colors">
+                    Privacy Policy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact info */}
+            <div>
+              <h3 className="mb-4 text-lg font-semibold text-white">Contact Us</h3>
+              <address className="not-italic">
+                <p className="mb-2 text-sm text-gray-300">
+                  <strong className="text-white">Address:</strong><br />
+                  123 Luxury Avenue<br />
+                  Nairobi, Kenya
+                </p>
+                <p className="mb-2 text-sm text-gray-300">
+                  <strong className="text-white">Phone:</strong><br />
+                  +254 712 345 678
+                </p>
+                <p className="mb-2 text-sm text-gray-300">
+                  <strong className="text-white">Email:</strong><br />
+                  info@redstonejewelry.com
+                </p>
+                <p className="text-sm text-gray-300">
+                  <strong className="text-white">Hours:</strong><br />
+                  Mon-Sat: 10:00 AM - 7:00 PM<br />
+                  Sunday: Closed
+                </p>
+              </address>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+            <p>&copy; {new Date().getFullYear()} Redstone Jewelry. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default MainLayout;

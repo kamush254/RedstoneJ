@@ -1,0 +1,16 @@
+{
+    "name": "json-server-backend",
+    "version": "1.0.0",
+    "main": "server.js",
+    "scripts": {
+      "start": "json-server --watch db.json --port 5000"
+    },
+    "dependencies": {
+      "json-server": "^0.17.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": ""
+  }
+  
