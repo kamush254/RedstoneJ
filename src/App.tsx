@@ -15,6 +15,7 @@ import AdminDashboard from "./pages/admin/Dashboard";
 import AdminProducts from "./pages/admin/Products";
 import AdminAppointments from "./pages/admin/Appointments";
 import NotFound from "./pages/NotFound";
+import { motion } from "framer-motion";
 
 // Create a client
 const queryClient = new QueryClient();

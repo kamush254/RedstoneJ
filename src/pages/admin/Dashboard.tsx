@@ -6,6 +6,8 @@ import { appointmentService } from '@/services/appointmentService';
 import { Product, Appointment } from '@/interfaces';
 
 const AdminDashboard: FC = () => {
+  // ... existing state and logic remains the same ...
+
   const [stats, setStats] = useState({
     totalProducts: 0,
     featuredProducts: 0,
@@ -78,13 +80,13 @@ const AdminDashboard: FC = () => {
         return 'text-gray-600 bg-gray-100 border-gray-200';
     }
   };
-
   return (
     <AdminLayout>
-      <div className="space-y-8">
-        <div>
-          <h1 className="text-2xl font-bold text-jewelry-black">Dashboard</h1>
-          <p className="text-gray-600">Welcome to your Redstone Jewelry admin dashboard</p>
+      <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+        {/* Header Section */}
+        <div className="animate-fade-in-down">
+          <h1 className="text-2xl sm:text-3xl font-bold text-jewelry-black">Dashboard Overview</h1>
+          <p className="text-gray-600 mt-2 text-sm sm:text-base">Welcome back! Here's your store summary</p>
         </div>
 
         {loading ? (
@@ -93,165 +95,163 @@ const AdminDashboard: FC = () => {
           </div>
         ) : (
           <>
-            {/* Stats Cards */}
-            <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardDescription>Total Products</CardDescription>
-                  <CardTitle className="text-3xl">{stats.totalProducts}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    {stats.featuredProducts} featured products
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardDescription>Total Appointments</CardDescription>
-                  <CardTitle className="text-3xl">{stats.totalAppointments}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    {stats.pendingAppointments} pending approval
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardDescription>Featured Products</CardDescription>
-                  <CardTitle className="text-3xl">{stats.featuredProducts}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    Showcased on homepage
-                  </p>
-                </CardContent>
-              </Card>
-              <Card>
-                <CardHeader className="pb-2">
-                  <CardDescription>Pending Appointments</CardDescription>
-                  <CardTitle className="text-3xl">{stats.pendingAppointments}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-gray-500">
-                    Awaiting confirmation
-                  </p>
-                </CardContent>
-              </Card>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 animate-staggered-fade">
+              {[
+                { 
+                  title: 'Total Products', 
+                  value: stats.totalProducts, 
+                  subtitle: `${stats.featuredProducts} featured`,
+                  bg: 'from-blue-50/80 to-white'
+                },
+                { 
+                  title: 'Total Appointments', 
+                  value: stats.totalAppointments, 
+                  subtitle: `${stats.pendingAppointments} pending`,
+                  bg: 'from-purple-50/80 to-white'
+                },
+                { 
+                  title: 'Featured', 
+                  value: stats.featuredProducts, 
+                  subtitle: 'Homepage highlights',
+                  bg: 'from-amber-50/80 to-white'
+                },
+                { 
+                  title: 'Pending', 
+                  value: stats.pendingAppointments, 
+                  subtitle: 'Needs approval',
+                  bg: 'from-rose-50/80 to-white'
+                },
+              ].map((stat, index) => (
+                <Card 
+                  key={index}
+                  className={`group bg-gradient-to-br ${stat.bg} transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border-0 shadow-sm`}
+                >
+                  <CardHeader className="pb-2">
+                    <CardDescription className="text-gray-500 text-sm">{stat.title}</CardDescription>
+                    <CardTitle className="text-3xl text-jewelry-gold font-bold">{stat.value}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-xs sm:text-sm text-gray-500 font-medium">
+                      {stat.subtitle}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
 
-            {/* Recent Appointments */}
-            <Card>
+            {/* Recent Appointments Table */}
+            <Card className="animate-fade-in-up">
               <CardHeader>
-                <CardTitle>Recent Appointments</CardTitle>
-                <CardDescription>
-                  Latest appointment bookings from customers
+                <CardTitle className="text-lg sm:text-xl">Recent Appointments</CardTitle>
+                <CardDescription className="text-sm sm:text-base">
+                  Last 5 customer bookings
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                {stats.recentAppointments.length === 0 ? (
-                  <p className="text-gray-500 text-center py-4">No recent appointments found</p>
-                ) : (
-                  <div className="overflow-x-auto rounded-md border border-gray-200">
-                    <table className="min-w-[650px] w-full text-sm table-auto">
-                      <thead>
-                        <tr className="border-b">
-                          <th className="text-left py-3 px-4 font-medium whitespace-nowrap">Customer</th>
-                          <th className="text-left py-3 px-4 font-medium whitespace-nowrap">Date & Time</th>
-                          <th className="text-left py-3 px-4 font-medium whitespace-nowrap">Reason</th>
-                          <th className="text-left py-3 px-4 font-medium whitespace-nowrap">Status</th>
-                          <th className="text-left py-3 px-4 font-medium whitespace-nowrap">Booked On</th>
+                <div className="overflow-x-auto rounded-xl border border-gray-100">
+                  <table className="min-w-full divide-y divide-gray-100">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="py-3 px-4 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase">Customer</th>
+                        <th className="py-3 px-4 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase hidden sm:table-cell">Date/Time</th>
+                        <th className="py-3 px-4 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase">Status</th>
+                        <th className="py-3 px-4 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase">Booked</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-100">
+                      {stats.recentAppointments.map((appointment) => (
+                        <tr 
+                          key={appointment.id}
+                          className="hover:bg-gray-50/50 transition-colors duration-150"
+                        >
+                          <td className="py-3 px-4 max-w-[160px] sm:max-w-none">
+                            <div className="space-y-0.5">
+                              <p className="text-sm sm:text-base font-medium truncate">{appointment.customerName}</p>
+                              <p className="text-xs sm:text-sm text-gray-500 truncate">{appointment.customerEmail}</p>
+                            </div>
+                          </td>
+                          <td className="py-3 px-4 text-sm sm:text-base text-gray-800 hidden sm:table-cell">
+                            {appointment.date} <span className="text-gray-400">at</span> {appointment.time}
+                          </td>
+                          <td className="py-3 px-4">
+                            <span 
+                              className={`inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${
+                                getStatusColor(appointment.status)
+                              }`}
+                            >
+                              {appointment.status}
+                            </span>
+                          </td>
+                          <td className="py-3 px-4 text-xs sm:text-sm text-gray-500 whitespace-nowrap">
+                            {formatDate(appointment.createdAt)}
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        {stats.recentAppointments.map((appointment) => (
-                          <tr key={appointment.id} className="border-b">
-                            <td className="py-3 px-4">
-                              <div>
-                                <p className="font-medium">{appointment.customerName}</p>
-                                <p className="text-gray-500 text-xs break-all">{appointment.customerEmail}</p>
-                              </div>
-                            </td>
-                            <td className="py-3 px-4 whitespace-nowrap">
-                              {appointment.date} <span className="block md:inline">at</span> {appointment.time}
-                            </td>
-                            <td className="py-3 px-4 capitalize">{appointment.reason}</td>
-                            <td className="py-3 px-4">
-                              <span 
-                                className={`inline-block px-2 py-1 rounded-full text-xs font-medium capitalize ${
-                                  getStatusColor(appointment.status)
-                                }`}
-                              >
-                                {appointment.status}
-                              </span>
-                            </td>
-                            <td className="py-3 px-4 text-gray-500 whitespace-nowrap">
-                              {formatDate(appointment.createdAt)}
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                )}
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </CardContent>
             </Card>
 
-            {/* Quick Links */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Manage Products</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-500 text-sm mb-4">
-                    Add, edit, or remove products from your collection.
-                  </p>
-                  <a 
-                    href="/admin/products" 
-                    className="text-jewelry-gold hover:underline text-sm font-medium"
-                  >
-                    Go to Product Management →
-                  </a>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">Manage Appointments</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-500 text-sm mb-4">
-                    View and update status of customer appointments.
-                  </p>
-                  <a 
-                    href="/admin/appointments" 
-                    className="text-jewelry-gold hover:underline text-sm font-medium"
-                  >
-                    Go to Appointment Management →
-                  </a>
-                </CardContent>
-              </Card>
-              
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-lg">View Store</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-500 text-sm mb-4">
-                    Preview your storefront as customers see it.
-                  </p>
-                  <a 
-                    href="/" 
-                    className="text-jewelry-gold hover:underline text-sm font-medium"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Storefront →
-                  </a>
-                </CardContent>
-              </Card>
+            {/* Quick Actions Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up">
+              {[
+                { 
+                  title: 'Product Management',
+                  desc: 'Manage your jewelry collection',
+                  link: '/admin/products',
+                  icon: '💎'
+                },
+                {
+                  title: 'Appointments',
+                  desc: 'Handle customer bookings',
+                  link: '/admin/appointments',
+                  icon: '📅'
+                },
+                {
+                  title: 'Store Preview',
+                  desc: 'View customer-facing store',
+                  link: '/',
+                  icon: '👀',
+                  external: true
+                }
+              ].map((card, index) => (
+                <Card 
+                  key={index}
+                  className="transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 border border-gray-100/50 bg-gradient-to-br from-white to-gray-50/50"
+                >
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="flex items-start gap-4">
+                      <span className="text-2xl sm:text-3xl">{card.icon}</span>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-semibold text-jewelry-black mb-1.5">
+                          {card.title}
+                        </h3>
+                        <p className="text-gray-500 text-sm sm:text-base mb-3">
+                          {card.desc}
+                        </p>
+                        <a 
+                          href={card.link}
+                          className="inline-flex items-center gap-2 text-jewelry-gold hover:text-jewelry-darkgold font-medium text-sm sm:text-base transition-colors"
+                          target={card.external ? "_blank" : undefined}
+                          rel={card.external ? "noopener noreferrer" : undefined}
+                        >
+                          Access Now
+                          <svg 
+                            className="w-4 h-4 mt-0.5 transition-transform duration-200 group-hover:translate-x-1" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
             </div>
           </>
         )}

@@ -32,45 +32,87 @@ const Home: FC = () => {
   return (
     <MainLayout>
       {/* Hero Section */}
-      <section className="relative">
-        <div 
-          className="h-[600px] bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: 'url(https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80)',
-            backgroundPosition: 'center 30%'
-          }}
-        >
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6">
-            <h1 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
-              Timeless Elegance, <br />Exceptional Craftsmanship
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl">
-              Discover REDSTONE's exclusive collection of fine jewelry, where luxury meets artistry.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/products">
-                <Button 
-                  className="bg-jewelry-gold hover:bg-jewelry-darkgold text-white min-w-[160px]"
-                  size="lg"
-                >
-                  Explore Collection
-                </Button>
-              </Link>
-              <Link to="/appointment">
-                <Button 
-                  variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-jewelry-black min-w-[160px]"
-                  size="lg"
-                >
-                  Book Appointment
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="relative h-[100dvh] overflow-hidden">
+  {/* Parallax Background */}
+  <div className="absolute inset-0 transform-gpu will-change-transform">
+    <img
+      src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0"
+      alt="Luxury jewelry"
+      className="w-full h-full object-cover object-center scale-110 sm:scale-100 motion-safe:animate-kenburns"
+      loading="eager"
+      style={{ transform: 'translateZ(0)' }} // Force hardware acceleration
+    />
+    <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/45 to-black/25" />
+  </div>
 
+  {/* Floating Jewelry Elements (Subtle Animation) */}
+  <div className="hidden sm:block">
+    <div className="absolute top-[20%] left-[10%] animate-float-1">
+      <div className="w-8 h-8 bg-jewelry-gold/30 rounded-full blur-[20px]" />
+    </div>
+    <div className="absolute top-[30%] right-[15%] animate-float-2">
+      <div className="w-6 h-6 bg-white/20 rounded-full blur-[15px]" />
+    </div>
+  </div>
+
+  {/* Content */}
+  <div className="relative h-full flex flex-col items-center justify-center px-4 text-center">
+    <div className="max-w-[480px] w-full space-y-6 transform translate-y-[-10%]">
+      {/* Dynamic Text Rotator */}
+      <div className="overflow-hidden">
+        <h1 className="text-4xl font-serif font-bold text-white leading-[1.15] [text-shadow:0_2px_12px_rgba(0,0,0,0.4)] motion-safe:animate-slide-up">
+          Timeless Elegance,<br />
+          <span className="inline-block mt-2 motion-safe:animate-delayed-fade">
+            Exceptional Craftsmanship
+          </span>
+        </h1>
+      </div>
+
+      {/* Glowing Text Effect */}
+      <p className="text-white/90 text-lg leading-relaxed mx-auto max-w-[320px] relative">
+        <span className="motion-safe:animate-text-glow">
+          Discover REDSTONE's exclusive collection
+        </span>
+      </p>
+
+      {/* Hover-enhanced Buttons */}
+      <div className="flex flex-col gap-3 w-full mx-auto max-w-[280px]">
+        <Link
+          to="/products"
+          className="block w-full relative overflow-hidden 
+                   bg-jewelry-gold text-white py-4 rounded-full 
+                   text-lg font-medium transition-all duration-300
+                   shadow-lg hover:shadow-xl hover:scale-[1.02]
+                   active:scale-95"
+        >
+          <span className="relative z-10">Explore Collection</span>
+          <div className="absolute inset-0 motion-safe:animate-shimmer opacity-0 hover:opacity-30 transition-opacity" />
+        </Link>
+        
+        <Link
+          to="/appointment"
+          className="block w-full bg-white/10 text-white py-4 rounded-full 
+                   text-lg font-medium backdrop-blur-sm border border-white/30
+                   transition-all duration-300 hover:bg-white/20 hover:scale-[1.02]
+                   active:scale-95"
+        >
+          <span className="relative z-10">Book Appointment</span>
+        </Link>
+      </div>
+    </div>
+
+    {/* Modern Scroll Indicator */}
+    <div className="absolute bottom-8 motion-safe:animate-bounce-slow">
+      <div className="w-10 h-16 relative">
+        <div className="absolute bottom-0 w-4 h-4 border-2 border-white/80 rounded-full 
+                        left-1/2 -translate-x-1/2 motion-safe:animate-pulse-glow" />
+        <div className="absolute w-[2px] h-8 bg-white/50 left-1/2 -translate-x-1/2 
+                        motion-safe:animate-scroll-line" />
+      </div>
+    </div>
+  </div>
+
+</section>
       {/* Featured Products Section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="container mx-auto">
