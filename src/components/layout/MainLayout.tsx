@@ -30,7 +30,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
             {/* Improved Logo */}
             <Link to="/" className="flex items-center group">
             <img 
-  src="/redlogo.jpg" 
+  src="/redlogo.png" 
   alt="Redstone Jewelry Logo" 
   className="h-16 md:h-24 w-auto transform transition-all duration-300 hover:scale-105"
   style={{ padding: '8px 0' }} // Maintain aspect ratio
