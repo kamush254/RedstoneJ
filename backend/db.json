@@ -1,23 +1,12 @@
 {
-    "users": [
-      {
-        "id": "1",
-        "username": "admin",
-        "email": "admin@redstone.com",
-        "password": "admin123",
-        "role": "admin",
-        "avatar": "https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff"
-      },
-      {
-        "id": "2",
-        "username": "staff",
-        "email": "staff@redstone.com",
-        "password": "staff123",
-        "role": "staff",
-        "avatar": "https://ui-avatars.com/api/?name=Staff&background=D4AF37&color=000"
-      }
-    ],
-    
+  "users": [{
+    "id": "1",
+    "username": "ALPHIE254",
+    "email": "admin@redstone.com",
+    "password": "$2b$10$eW5k3h1zQ9F5F1k3h1zQ9F5F1k3h1zQ9F5F1k3h1zQ9F5F1k3h1zQ9F5",
+    "role": "admin",
+    "avatar": "https://ui-avatars.com/api/?name=ALPHIE254&background=0D8ABC&color=fff"
+  }],
   "products": [
     {
       "id": "1",
