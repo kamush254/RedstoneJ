@@ -10,7 +10,7 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Appointment from "./pages/Appointment";
 import About from "./pages/About";
-import services from "./pages/services";
+import Services from "./pages/services";
 import AdminLogin from "./pages/admin/Login";
 import AdminDashboard from "./pages/admin/Dashboard";
 import AdminProducts from "./pages/admin/Products";
@@ -33,7 +33,7 @@ const App = () => {
               {/* Storefront Routes */}
               <Route path="/" element={<Home />} />
               <Route path="/products" element={<Products />} />
-              <Route path="/services" element={<services />} />
+              <Route path="/services" element={<Services />} />
               <Route path="/products/:id" element={<ProductDetail />} />
               <Route path="/appointment" element={<Appointment />} />
               <Route path="/about" element={<About />} />

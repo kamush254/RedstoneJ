@@ -21,11 +21,12 @@
   "products": [
     {
       "id": "1",
-      "name": "Diamond  Ring",
-      "description": "An exquisite diamond eternity ring set in 18k white gold, symbolizing endless love and commitment.",
-      "price": 85000,
+      "name": "Engagement Ring",
+      "description": "Silver-tone band with a simulated diamond center (affordable engagement style",
+      "price": 5000,
       "images": [
-        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        "https://images.pexels.com/photos/1232931/pexels-photo-1232931.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/7662841/pexels-photo-7662841.jpeg?auto=compress&cs=tinysrgb&w=600"
       ],
       "category": "ring",
       "featured": true,
@@ -35,11 +36,12 @@
     },
     {
       "id": "2",
-      "name": "Sapphire Pendant Necklace",
-      "description": "A classic strand of luminous pearls, perfect for adding a touch of elegance to any occasion.",
-      "price": 42000,
+      "name": "Layered Gold-Tone Chain Necklace",
+      "description": "Triple-layer lightweight necklace in gold color",
+      "price": 2000,
       "images": [
-        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        "https://images.pexels.com/photos/29013500/pexels-photo-29013500/free-photo-of-elegant-gold-necklace-on-display-in-jewelry-store.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/13325931/pexels-photo-13325931.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
       ],
       "category": "necklace",
       "featured": false,
@@ -49,11 +51,12 @@
     },
     {
       "id": "3",
-      "name": "Emerald Tennis Bracelet",
+      "name": "Charm Bracelet",
       "description": "A solid gold bracelet, a timeless piece that exudes sophistication and style.",
-      "price": 68000,
+      "price": 1800,
       "images": [
-        "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+        "https://images.pexels.com/photos/12194318/pexels-photo-12194318.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+        "https://images.pexels.com/photos/12194315/pexels-photo-12194315.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
       ],
       "category": "bracelet",
       "featured": true,
@@ -65,8 +68,9 @@
       "id": "4",
       "name": "Ruby Drop Earring",
       "description": "Elegant emerald earrings set in platinum, radiating natural beauty and charm.",
-      "price": 92000,
+      "price": 1500,
       "images": [
+        "https://images.pexels.com/photos/1648741/pexels-photo-1648741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       ],
       "category": "earring",
@@ -79,8 +83,9 @@
       "id": "5",
       "name": "Luxury Diamond Watch",
       "description": "A stunning sapphire pendant suspended from a delicate gold chain, a symbol of wisdom and royalty.",
-      "price": 76000,
+      "price": 7600,
       "images": [
+        "https://images.pexels.com/photos/31050004/pexels-photo-31050004/free-photo-of-luxury-gold-and-silver-watch-on-blue-satin.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       ],
       "category": "watch",
@@ -93,8 +98,9 @@
       "id": "6",
       "name": "Pearl Stud Earrings",
       "description": "A vintage-inspired ruby brooch set in sterling silver, adding a touch of old-world glamour.",
-      "price": 59000,
+      "price": 9000,
       "images": [
+        "https://images.pexels.com/photos/1413420/pexels-photo-1413420.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
       ],
       "category": "earring",
@@ -109,6 +115,7 @@
       "description": "A brilliant diamond ring with a timeless design, reflecting pure elegance and love.",
       "price": 75000,
       "images": [
+        "https://images.pexels.com/photos/8398840/pexels-photo-8398840.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "https://ideogram.ai/assets/image/lossless/response/cW0ZuHYDRIGa1bdPp_iAnQ"
       ],
       "category": "ring",
@@ -123,6 +130,7 @@
       "description": "Modern diamond ring with a sleek band, perfect for marking life's milestones.",
       "price": 72000,
       "images": [
+        "https://images.pexels.com/photos/2849742/pexels-photo-2849742.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://ideogram.ai/assets/image/lossless/response/7iiEJG1nT8q4EAe6W5e6Wg"
       ],
       "category": "ring",
@@ -135,9 +143,11 @@
       "id": "9",
       "name": "Infinity Light Diamond Ring",
       "description": "Elegant diamond ring featuring a sophisticated arrangement of stones, a symbol of forever.",
-      "price": 73000,
+      "price": 10000,
       "images": [
-        "https://ideogram.ai/assets/image/lossless/response/7iiEJG1nT8q4EAe6W5e6Wg"
+        "https://images.pexels.com/photos/168927/pexels-photo-168927.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/11745298/pexels-photo-11745298.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+        
       ],
       "category": "ring",
       "featured": false,
@@ -151,6 +161,7 @@
       "description": "Refined diamond ring showcasing expert craftsmanship and sparkling brilliance.",
       "price": 76000,
       "images": [
+        "https://images.pexels.com/photos/280250/pexels-photo-280250.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://ideogram.ai/assets/image/lossless/response/UWa1V12bR1OlMF_Glm3jhA"
       ],
       "category": "ring",
@@ -165,7 +176,8 @@
       "description": "An elegant timepiece with a polished finish, blending tradition with luxury.",
       "price": 12000,
       "images": [
-        "https://ideogram.ai/assets/image/lossless/response/Bppf1QaaROqq4khz53JhKA"
+        "https://ideogram.ai/assets/image/lossless/response/Bppf1QaaROqq4khz53JhKA",
+        "https://images.pexels.com/photos/190819/pexels-photo-190819.jpeg?auto=compress&cs=tinysrgb&w=600"
       ],
       "category": "watch",
       "featured": false,
@@ -179,6 +191,7 @@
       "description": "A bold and precise watch, crafted for those who lead with confidence.",
       "price": 11500,
       "images": [
+        "https://images.pexels.com/photos/2799535/pexels-photo-2799535.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://ideogram.ai/assets/image/lossless/response/hPMWJz2ARsavWKImoAuKbg"
       ],
       "category": "watch",
@@ -193,6 +206,7 @@
       "description": "A luxurious diamond-accented watch, designed to endure generations.",
       "price": 18000,
       "images": [
+        "https://images.pexels.com/photos/2113994/pexels-photo-2113994.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://images.unsplash.com/photo-1703034390224-f5f0a204abc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlhbW9uZCUyMHdhdGNofGVufDB8fDB8fHww"
       ],
       "category": "watch",
@@ -207,6 +221,7 @@
       "description": "A sophisticated watch that captures the beauty of fleeting moments.",
       "price": 14000,
       "images": [
+        "https://images.pexels.com/photos/13703305/pexels-photo-13703305.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://images.unsplash.com/photo-1570943991418-ffa08d952b16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRpYW1vbmQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D"
       ],
       "category": "watch",
@@ -217,11 +232,12 @@
     },
     {
       "id": "15",
-      "name": "Celeste Bloom Necklace",
+      "name": "Collar Necklace",
       "description": "An enchanting necklace with intricate details, perfect for elevating any occasion.",
       "price": 5400,
       "images": [
-        "https://ideogram.ai/assets/progressive-image/balanced/response/x-646tLySe6UhkUD3j1wAQ"
+        "https://images.pexels.com/photos/20100105/pexels-photo-20100105/free-photo-of-close-up-of-a-necklace.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/31459471/pexels-photo-31459471/free-photo-of-elegant-diamond-flower-pendant-necklace.jpeg?auto=compress&cs=tinysrgb&w=600"
       ],
       "category": "necklace",
       "featured": false,
@@ -231,11 +247,12 @@
     },
     {
       "id": "16",
-      "name": "Luna Grace Necklace",
-      "description": "A delicate necklace that shimmers with moonlight charm and timeless style.",
+      "name": "Chain Necklace",
+      "description": " A versatile and classic design that showcases interlocking links. It can be worn alone for a minimalist look or layered with other necklaces for a more eclectic style.",
       "price": 5800,
       "images": [
-        "https://ideogram.ai/assets/progressive-image/balanced/response/L5AU8ZJ9RuywceyZr-xUCg"
+        "https://images.pexels.com/photos/9280250/pexels-photo-9280250.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/5370650/pexels-photo-5370650.jpeg?auto=compress&cs=tinysrgb&w=600"
       ],
       "category": "necklace",
       "featured": false,
@@ -249,7 +266,8 @@
       "description": "A radiant bracelet with a modern twist design, perfect for everyday luxury.",
       "price": 3200,
       "images": [
-        "https://images.unsplash.com/photo-1619119069152-a2b331eb392a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZCUyMGJyYWNlbGV0fGVufDB8fDB8fHww"
+        "https://images.pexels.com/photos/31757022/pexels-photo-31757022/free-photo-of-elegant-diamond-bracelet-with-dried-flowers.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/12194330/pexels-photo-12194330.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
       ],
       "category": "bracelet",
       "featured": false,
@@ -259,11 +277,12 @@
     },
     {
       "id": "18",
-      "name": "Aurora Link Bracelet",
-      "description": "Chic bracelet featuring interlocking links, a statement of style and grace.",
+      "name": "Bangle Bracelet",
+      "description": "A rigid, circular bracelet, sometimes fully encrusted with diamonds or partially decorated.",
       "price": 3400,
       "images": [
-        "https://images.unsplash.com/photo-1663568675454-ecd65012d8f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGlhbW9uZCUyMGJyYWNlbGV0fGVufDB8fDB8fHww"
+        "https://images.pexels.com/photos/12026051/pexels-photo-12026051.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/12026055/pexels-photo-12026055.jpeg?auto=compress&cs=tinysrgb&w=600"
       ],
       "category": "bracelet",
       "featured": false,
@@ -277,6 +296,7 @@
       "description": "Sleek bracelet with a fluid curve design, inspired by celestial movements.",
       "price": 3100,
       "images": [
+        "https://images.pexels.com/photos/266621/pexels-photo-266621.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRpYW1vbmQlMjBicmFjZWxldHxlbnwwfHwwfHx8MA%3D%3D"
       ],
       "category": "bracelet",
@@ -291,7 +311,8 @@
       "description": "Delicate bracelet adorned with star motifs, capturing the wonder of night skies.",
       "price": 3500,
       "images": [
-        "https://ideogram.ai/assets/image/lossless/response/9RJ1Gf6lTBGwh07YdcnHqA"
+        "https://images.pexels.com/photos/29245553/pexels-photo-29245553/free-photo-of-elegant-diamond-bracelet-in-festival-setting.jpeg?auto=compress&cs=tinysrgb&w=600",
+        "https://images.pexels.com/photos/30746009/pexels-photo-30746009/free-photo-of-elegant-diamond-ring-with-gift-ribbon.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
       ],
       "category": "bracelet",
       "featured": false,
@@ -305,6 +326,7 @@
       "description": "Elegant drop earrings that catch the light beautifully with every movement.",
       "price": 2700,
       "images": [
+        "https://images.pexels.com/photos/3266700/pexels-photo-3266700.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "https://images.unsplash.com/photo-1674329042475-de1a95b4ca62?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
       ],
       "category": "earring",
@@ -319,6 +341,7 @@
       "description": "Timeless pearl earrings designed to bring grace and poise to any look.",
       "price": 2900,
       "images": [
+        "https://images.pexels.com/photos/29483946/pexels-photo-29483946/free-photo-of-elegant-diamond-and-pearl-earrings-on-stone.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
       ],
       "category": "earring",
@@ -333,7 +356,8 @@
       "description": "Radiant crystal earrings that mirror the soft glow of early dawn.",
       "price": 3000,
       "images": [
-        "https://images.unsplash.com/photo-1723802205505-2f88b2227718?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWNjZXNzb3J5fGVufDB8fDB8fHww"
+        "https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "https://images.pexels.com/photos/19895204/pexels-photo-19895204/free-photo-of-close-up-of-a-diamond.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
       ],
       "category": "earring",
       "featured": false,

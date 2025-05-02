@@ -1,0 +1,8 @@
+[33mab9b1fd[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Update db.json
+[33m9b78854[m Update db.json
+[33m8c8e7ab[m Fix: Update JSON Server to bind to 0.0.0.0 and use PORT
+[33mab81c70[m Merged remote main into local main
+[33mca391b1[m Delete package.json
+[33m7db2dcd[m Delete db.json
+[33me8f3fde[m Initial commit
+[33me6b670e[m Add files via upload

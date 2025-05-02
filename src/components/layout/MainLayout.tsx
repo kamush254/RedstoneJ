@@ -65,15 +65,16 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
                 Collection
               </Link>
               <Link 
-                to="/appointment" 
+                to="/services" 
                 className={`text-base font-medium transition-all ${
-                  isActive('/appointment') 
+                  isActive('/services') 
                     ? 'text-jewelry-gold border-b-2 border-jewelry-gold' 
                     : 'text-jewelry-black hover:text-jewelry-gold hover:scale-105'
                 }`}
               >
-                Book Appointment
+                Services
               </Link>
+              
               <Link 
                 to="/about" 
                 className={`text-base font-medium transition-all ${

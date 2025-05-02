@@ -5,6 +5,7 @@ import ProductCard from '@/components/shared/ProductCard';
 import { Button } from '@/components/ui/button';
 import { productService } from '@/services/productService';
 import { Product } from '@/interfaces';
+import backgroundImage from '@/assets/images/bg.jpg';
 
 const Home: FC = () => {
   const [featuredProducts, setFeaturedProducts] = useState<Product[]>([]);
@@ -36,7 +37,7 @@ const Home: FC = () => {
   {/* Parallax Background */}
   <div className="absolute inset-0 transform-gpu will-change-transform">
     <img
-      src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0"
+      src={backgroundImage}
       alt="Luxury jewelry"
       className="w-full h-full object-cover object-center scale-110 sm:scale-100 motion-safe:animate-kenburns"
       loading="eager"
@@ -102,12 +103,11 @@ const Home: FC = () => {
     </div>
 
     {/* Modern Scroll Indicator */}
-    <div className="absolute bottom-8 motion-safe:animate-bounce-slow">
+    <div className="absolute bottom-8 animate-bounce">
       <div className="w-10 h-16 relative">
-        <div className="absolute bottom-0 w-4 h-4 border-2 border-white/80 rounded-full 
-                        left-1/2 -translate-x-1/2 motion-safe:animate-pulse-glow" />
-        <div className="absolute w-[2px] h-8 bg-white/50 left-1/2 -translate-x-1/2 
-                        motion-safe:animate-scroll-line" />
+        <div className="absolute bottom-0 w-4 h-4 border-2 border-white rounded-full 
+                        left-1/2 -translate-x-1/2 animate-pulse" />
+        <div className="absolute w-[2px] h-8 bg-white/70 left-1/2 -translate-x-1/2" />
       </div>
     </div>
   </div>
