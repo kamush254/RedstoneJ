@@ -187,7 +187,7 @@ const Home: FC = () => {
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1535632066274-1f274a2c6765?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src="https://ideogram.ai/assets/image/lossless/response/qpjHUsfFRaqAayDk74-y6Q" 
                 alt="Jewelry craftsman at work" 
                 className="rounded-lg shadow-lg"
               />
@@ -288,7 +288,7 @@ const Home: FC = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-white text-white transition-colors duration-300 hover:bg-white hover:text-jewelry-black min-w-[160px]"
+                className="border-white/10 text-white/10   transition-colors duration-300 hover:bg-white hover:text-jewelry-black min-w-[160px]"
               >
                 Browse Collection
               </Button>

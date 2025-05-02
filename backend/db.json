@@ -154,7 +154,7 @@
         "https://ideogram.ai/assets/image/lossless/response/UWa1V12bR1OlMF_Glm3jhA"
       ],
       "category": "ring",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-01T00:00:00.000Z",
       "updatedAt": "2025-01-01T00:00:00.000Z"
@@ -168,8 +168,8 @@
         "https://ideogram.ai/assets/image/lossless/response/Bppf1QaaROqq4khz53JhKA"
       ],
       "category": "watch",
-      "featured": true,
-      "inStock": true,
+      "featured": false,
+      "inStock": false,
       "createdAt": "2025-01-02T00:00:00.000Z",
       "updatedAt": "2025-01-02T00:00:00.000Z"
     },
@@ -196,7 +196,7 @@
         "https://images.unsplash.com/photo-1703034390224-f5f0a204abc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlhbW9uZCUyMHdhdGNofGVufDB8fDB8fHww"
       ],
       "category": "watch",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-02T00:00:00.000Z",
       "updatedAt": "2025-01-02T00:00:00.000Z"
@@ -224,7 +224,7 @@
         "https://ideogram.ai/assets/progressive-image/balanced/response/x-646tLySe6UhkUD3j1wAQ"
       ],
       "category": "necklace",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-03T00:00:00.000Z",
       "updatedAt": "2025-01-03T00:00:00.000Z"
@@ -252,8 +252,8 @@
         "https://images.unsplash.com/photo-1619119069152-a2b331eb392a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZCUyMGJyYWNlbGV0fGVufDB8fDB8fHww"
       ],
       "category": "bracelet",
-      "featured": true,
-      "inStock": true,
+      "featured": false,
+      "inStock": false,
       "createdAt": "2025-01-04T00:00:00.000Z",
       "updatedAt": "2025-01-04T00:00:00.000Z"
     },
@@ -294,7 +294,7 @@
         "https://ideogram.ai/assets/image/lossless/response/9RJ1Gf6lTBGwh07YdcnHqA"
       ],
       "category": "bracelet",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-04T00:00:00.000Z",
       "updatedAt": "2025-01-04T00:00:00.000Z"
@@ -308,7 +308,7 @@
         "https://images.unsplash.com/photo-1674329042475-de1a95b4ca62?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
       ],
       "category": "earring",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-05T00:00:00.000Z",
       "updatedAt": "2025-01-05T00:00:00.000Z"
@@ -336,7 +336,7 @@
         "https://images.unsplash.com/photo-1723802205505-2f88b2227718?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWNjZXNzb3J5fGVufDB8fDB8fHww"
       ],
       "category": "earring",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-05T00:00:00.000Z",
       "updatedAt": "2025-01-05T00:00:00.000Z"
