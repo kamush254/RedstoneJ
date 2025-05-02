@@ -29,12 +29,12 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
           <div className="flex items-center justify-between h-20 md:h-24">
             {/* Improved Logo */}
             <Link to="/" className="flex items-center group">
-              <img 
-                src="/src/assets/images/redlogo.jpg" 
-                alt="Redstone Jewelry Logo" 
-                className="h-16 md:h-24 w-auto transform transition-all duration-300 hover:scale-105"
-                style={{ padding: '8px 0' }} // Maintain aspect ratio
-              />
+            <img 
+  src="/redlogo.jpg" 
+  alt="Redstone Jewelry Logo" 
+  className="h-16 md:h-24 w-auto transform transition-all duration-300 hover:scale-105"
+  style={{ padding: '8px 0' }} // Maintain aspect ratio
+/>
               {!isMobile && (
                 <span className="ml-3 font-serif text-2xl text-jewelry-black group-hover:text-jewelry-gold transition-colors">
                   REDSTONE
