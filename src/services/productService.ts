@@ -101,8 +101,9 @@ const mockProducts: Product[] = [
   }
 ];
 
+const API_URL = import.meta.env.VITE_API_BASE_URL + '/products';
 
-const API_URL = 'https://json-server-o0ft.onrender.com/products';
+
 
 export const productService = {
   // Get all products

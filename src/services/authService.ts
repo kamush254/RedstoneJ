@@ -42,8 +42,9 @@ const saveAuthState = (authState: AuthState): void => {
     localStorage.setItem('redstone_auth', JSON.stringify(authState));
   }
 };
+const API_URL = import.meta.env.VITE_API_BASE_URL + '/users';
 
-const API_URL = 'https://json-server-o0ft.onrender.com/users';
+
 
 export const authService = {
   // Get current auth state

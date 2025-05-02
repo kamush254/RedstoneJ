@@ -65,8 +65,8 @@ const mockAppointments: Appointment[] = [
   }
 ];
 
+const API_URL = import.meta.env.VITE_API_BASE_URL + '/appointments';
 
-const API_URL = 'https://json-server-o0ft.onrender.com/appointments';
 
 export const appointmentService = {
   // Get all appointments (Admin only)
