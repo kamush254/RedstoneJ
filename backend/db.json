@@ -17,95 +17,334 @@
         "avatar": "https://ui-avatars.com/api/?name=Staff&background=D4AF37&color=000"
       }
     ],
-    "products": [
-      {
-        "id": "1",
-        "name": "Diamond  Ring",
-        "description": "An exquisite diamond eternity ring set in 18k white gold, symbolizing endless love and commitment.",
-        "price": 85000,
-        "images": [
-          "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        ],
-        "category": "ring",
-        "featured": true,
-        "inStock": true,
-        "createdAt": "2023-01-01T00:00:00.000Z",
-        "updatedAt": "2023-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "2",
-        "name": "Sapphire Pendant Necklace",
-        "description": "A classic strand of luminous pearls, perfect for adding a touch of elegance to any occasion.",
-        "price": 42000,
-        "images": [
-          "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        ],
-        "category": "necklace",
-        "featured": false,
-        "inStock": true,
-        "createdAt": "2023-01-01T00:00:00.000Z",
-        "updatedAt": "2023-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "3",
-        "name": "Emerald Tennis Bracelet",
-        "description": "A solid gold bracelet, a timeless piece that exudes sophistication and style.",
-        "price": 68000,
-        "images": [
-          "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        ],
-        "category": "bracelet",
-        "featured": true,
-        "inStock": true,
-        "createdAt": "2023-01-01T00:00:00.000Z",
-        "updatedAt": "2023-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "4",
-        "name": "Ruby Drop Earring",
-        "description": "Elegant emerald earrings set in platinum, radiating natural beauty and charm.",
-        "price": 92000,
-        "images": [
-          "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        ],
-        "category": "earring",
-        "featured": false,
-        "inStock": true,
-        "createdAt": "2023-01-01T00:00:00.000Z",
-        "updatedAt": "2023-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "5",
-        "name": "Luxury Diamond Watch",
-        "description": "A stunning sapphire pendant suspended from a delicate gold chain, a symbol of wisdom and royalty.",
-        "price": 76000,
-        "images": [
-          "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        ],
-        "category": "watch",
-        "featured": false,
-        "inStock": true,
-        "createdAt": "2023-01-01T00:00:00.000Z",
-        "updatedAt": "2023-01-01T00:00:00.000Z"
-      },
-      {
-        "id": "6",
-        "name": "Pearl Stud Earrings",
-        "description": "A vintage-inspired ruby brooch set in sterling silver, adding a touch of old-world glamour.",
-        "price": 59000,
-        "images": [
-          "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-        ],
-        "category": "earring",
-        "featured": false,
-        "inStock": true,
-        "createdAt": "2023-01-01T00:00:00.000Z",
-        "updatedAt": "2023-01-01T00:00:00.000Z"
-      }
-    ],
-    "appointments": [
-      {
-        "id": "1",
+    
+  "products": [
+    {
+      "id": "1",
+      "name": "Diamond  Ring",
+      "description": "An exquisite diamond eternity ring set in 18k white gold, symbolizing endless love and commitment.",
+      "price": 85000,
+      "images": [
+        "https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      ],
+      "category": "ring",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "name": "Sapphire Pendant Necklace",
+      "description": "A classic strand of luminous pearls, perfect for adding a touch of elegance to any occasion.",
+      "price": 42000,
+      "images": [
+        "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      ],
+      "category": "necklace",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "name": "Emerald Tennis Bracelet",
+      "description": "A solid gold bracelet, a timeless piece that exudes sophistication and style.",
+      "price": 68000,
+      "images": [
+        "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      ],
+      "category": "bracelet",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "4",
+      "name": "Ruby Drop Earring",
+      "description": "Elegant emerald earrings set in platinum, radiating natural beauty and charm.",
+      "price": 92000,
+      "images": [
+        "https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      ],
+      "category": "earring",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "5",
+      "name": "Luxury Diamond Watch",
+      "description": "A stunning sapphire pendant suspended from a delicate gold chain, a symbol of wisdom and royalty.",
+      "price": 76000,
+      "images": [
+        "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      ],
+      "category": "watch",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "6",
+      "name": "Pearl Stud Earrings",
+      "description": "A vintage-inspired ruby brooch set in sterling silver, adding a touch of old-world glamour.",
+      "price": 59000,
+      "images": [
+        "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      ],
+      "category": "earring",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2023-01-01T00:00:00.000Z",
+      "updatedAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "7",
+      "name": "Eternal Glow Diamond Ring",
+      "description": "A brilliant diamond ring with a timeless design, reflecting pure elegance and love.",
+      "price": 75000,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/cW0ZuHYDRIGa1bdPp_iAnQ"
+      ],
+      "category": "ring",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "8",
+      "name": "Celestial Shine Diamond Ring",
+      "description": "Modern diamond ring with a sleek band, perfect for marking life's milestones.",
+      "price": 72000,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/7iiEJG1nT8q4EAe6W5e6Wg"
+      ],
+      "category": "ring",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "9",
+      "name": "Infinity Light Diamond Ring",
+      "description": "Elegant diamond ring featuring a sophisticated arrangement of stones, a symbol of forever.",
+      "price": 73000,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/7iiEJG1nT8q4EAe6W5e6Wg"
+      ],
+      "category": "ring",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "10",
+      "name": "Radiant Bond Diamond Ring",
+      "description": "Refined diamond ring showcasing expert craftsmanship and sparkling brilliance.",
+      "price": 76000,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/UWa1V12bR1OlMF_Glm3jhA"
+      ],
+      "category": "ring",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-01T00:00:00.000Z",
+      "updatedAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "11",
+      "name": "Monarch Classic Watch",
+      "description": "An elegant timepiece with a polished finish, blending tradition with luxury.",
+      "price": 12000,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/Bppf1QaaROqq4khz53JhKA"
+      ],
+      "category": "watch",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-02T00:00:00.000Z",
+      "updatedAt": "2025-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "12",
+      "name": "Vanguard Precision Watch",
+      "description": "A bold and precise watch, crafted for those who lead with confidence.",
+      "price": 11500,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/hPMWJz2ARsavWKImoAuKbg"
+      ],
+      "category": "watch",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-02T00:00:00.000Z",
+      "updatedAt": "2025-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "13",
+      "name": "Heritage Diamond Watch",
+      "description": "A luxurious diamond-accented watch, designed to endure generations.",
+      "price": 18000,
+      "images": [
+        "https://images.unsplash.com/photo-1703034390224-f5f0a204abc7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZGlhbW9uZCUyMHdhdGNofGVufDB8fDB8fHww"
+      ],
+      "category": "watch",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-02T00:00:00.000Z",
+      "updatedAt": "2025-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "14",
+      "name": "Aurora Timepiece",
+      "description": "A sophisticated watch that captures the beauty of fleeting moments.",
+      "price": 14000,
+      "images": [
+        "https://images.unsplash.com/photo-1570943991418-ffa08d952b16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGRpYW1vbmQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D"
+      ],
+      "category": "watch",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-02T00:00:00.000Z",
+      "updatedAt": "2025-01-02T00:00:00.000Z"
+    },
+    {
+      "id": "15",
+      "name": "Celeste Bloom Necklace",
+      "description": "An enchanting necklace with intricate details, perfect for elevating any occasion.",
+      "price": 5400,
+      "images": [
+        "https://ideogram.ai/assets/progressive-image/balanced/response/x-646tLySe6UhkUD3j1wAQ"
+      ],
+      "category": "necklace",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-03T00:00:00.000Z",
+      "updatedAt": "2025-01-03T00:00:00.000Z"
+    },
+    {
+      "id": "16",
+      "name": "Luna Grace Necklace",
+      "description": "A delicate necklace that shimmers with moonlight charm and timeless style.",
+      "price": 5800,
+      "images": [
+        "https://ideogram.ai/assets/progressive-image/balanced/response/L5AU8ZJ9RuywceyZr-xUCg"
+      ],
+      "category": "necklace",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-03T00:00:00.000Z",
+      "updatedAt": "2025-01-03T00:00:00.000Z"
+    },
+    {
+      "id": "17",
+      "name": "Soleil Twist Bracelet",
+      "description": "A radiant bracelet with a modern twist design, perfect for everyday luxury.",
+      "price": 3200,
+      "images": [
+        "https://images.unsplash.com/photo-1619119069152-a2b331eb392a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZGlhbW9uZCUyMGJyYWNlbGV0fGVufDB8fDB8fHww"
+      ],
+      "category": "bracelet",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-04T00:00:00.000Z",
+      "updatedAt": "2025-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "18",
+      "name": "Aurora Link Bracelet",
+      "description": "Chic bracelet featuring interlocking links, a statement of style and grace.",
+      "price": 3400,
+      "images": [
+        "https://images.unsplash.com/photo-1663568675454-ecd65012d8f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8ZGlhbW9uZCUyMGJyYWNlbGV0fGVufDB8fDB8fHww"
+      ],
+      "category": "bracelet",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-04T00:00:00.000Z",
+      "updatedAt": "2025-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "19",
+      "name": "Eclipse Curve Bracelet",
+      "description": "Sleek bracelet with a fluid curve design, inspired by celestial movements.",
+      "price": 3100,
+      "images": [
+        "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGRpYW1vbmQlMjBicmFjZWxldHxlbnwwfHwwfHx8MA%3D%3D"
+      ],
+      "category": "bracelet",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-04T00:00:00.000Z",
+      "updatedAt": "2025-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "20",
+      "name": "Starlight Charm Bracelet",
+      "description": "Delicate bracelet adorned with star motifs, capturing the wonder of night skies.",
+      "price": 3500,
+      "images": [
+        "https://ideogram.ai/assets/image/lossless/response/9RJ1Gf6lTBGwh07YdcnHqA"
+      ],
+      "category": "bracelet",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-04T00:00:00.000Z",
+      "updatedAt": "2025-01-04T00:00:00.000Z"
+    },
+    {
+      "id": "21",
+      "name": "Twilight Drop Earrings",
+      "description": "Elegant drop earrings that catch the light beautifully with every movement.",
+      "price": 2700,
+      "images": [
+        "https://images.unsplash.com/photo-1674329042475-de1a95b4ca62?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
+      ],
+      "category": "earring",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-05T00:00:00.000Z",
+      "updatedAt": "2025-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "22",
+      "name": "Nova Pearl Earrings",
+      "description": "Timeless pearl earrings designed to bring grace and poise to any look.",
+      "price": 2900,
+      "images": [
+        "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGVhcnJpbmd8ZW58MHx8MHx8fDA%3D"
+      ],
+      "category": "earring",
+      "featured": false,
+      "inStock": true,
+      "createdAt": "2025-01-05T00:00:00.000Z",
+      "updatedAt": "2025-01-05T00:00:00.000Z"
+    },
+    {
+      "id": "23",
+      "name": "Aurora Crystal Earrings",
+      "description": "Radiant crystal earrings that mirror the soft glow of early dawn.",
+      "price": 3000,
+      "images": [
+        "https://images.unsplash.com/photo-1723802205505-2f88b2227718?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWNjZXNzb3J5fGVufDB8fDB8fHww"
+      ],
+      "category": "earring",
+      "featured": true,
+      "inStock": true,
+      "createdAt": "2025-01-05T00:00:00.000Z",
+      "updatedAt": "2025-01-05T00:00:00.000Z"
+    }
+],
+"appointments": [
+    {
+      "id": "1",
         "customerName": "Emma Johnson",
         "customerEmail": "emma.johnson@example.com",
         "customerPhone": "+254712345678",
