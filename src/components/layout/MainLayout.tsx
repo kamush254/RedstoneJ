@@ -138,6 +138,17 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
                   Collection
                 </Link>
                 <Link 
+                  to="/services" 
+                  className={`text-base font-medium px-4 py-3 rounded-lg transition-all ${
+                    isActive('/services') 
+                      ? 'text-jewelry-gold bg-jewelry-gold/10' 
+                      : 'text-jewelry-black hover:bg-gray-50'
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Services
+                </Link>
+                <Link 
                   to="/appointment" 
                   className={`text-base font-medium px-4 py-3 rounded-lg transition-all ${
                     isActive('/appointment') 

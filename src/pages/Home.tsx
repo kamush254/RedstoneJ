@@ -228,7 +228,7 @@ const Home: FC = () => {
               },
               {
                 title: 'Earrings',
-                image: 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
+                image: 'https://images.pexels.com/photos/2735970/pexels-photo-2735970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
                 path: '/products?category=earring'
               },
               {
