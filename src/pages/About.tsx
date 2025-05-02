@@ -9,7 +9,7 @@ const About = () => {
         {/* Hero Section */}
         <div className="relative h-[400px] overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&q=80"
+            src="https://images.pexels.com/photos/19703087/pexels-photo-19703087/free-photo-of-close-up-of-a-ring.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
             alt="Jewelry Workshop Banner"
             className="w-full h-full object-cover brightness-50"
           />
@@ -41,7 +41,7 @@ const About = () => {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=80"
+              src="https://images.pexels.com/photos/3641059/pexels-photo-3641059.jpeg?auto=compress&cs=tinysrgb&w=600"
               alt="Craftsmen working on jewelry"
               className="rounded-2xl shadow-2xl object-cover w-full h-[500px]"
             />
