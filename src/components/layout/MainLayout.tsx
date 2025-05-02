@@ -218,11 +218,12 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
             {/* Brand Section */}
             <div className="space-y-6">
               <div className="flex items-center">
-                <img 
-                  src="/src/assets/images/redlogo.png" 
-                  alt="Redstone Logo" 
-                  className="h-16 w-auto mr-3"
-                />
+  <  img 
+  src="/redlogo.png" 
+  alt="Redstone Jewelry Logo" 
+  className="h-16 md:h-24 w-auto transform transition-all duration-300 hover:scale-105"
+  style={{ padding: '8px 0' }} // Maintain aspect ratio
+/>
                 <h3 className="text-2xl font-serif font-bold text-jewelry-gold">
                   REDSTONE
                 </h3>
