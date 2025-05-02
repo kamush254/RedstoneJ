@@ -1,5 +1,23 @@
+
 import { User, AuthState } from '@/interfaces';
-import bcrypt from 'bcryptjs';
+
+// Mock users data
+const mockUsers: User[] = [
+  {
+    id: '1',
+    username: 'admin',
+    email: 'admin@redstone.com',
+    role: 'admin',
+    avatar: 'https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff'
+  },
+  {
+    id: '2',
+    username: 'staff',
+    email: 'staff@redstone.com',
+    role: 'staff',
+    avatar: 'https://ui-avatars.com/api/?name=Staff&background=D4AF37&color=000'
+  }
+];
 
 // Initial auth state
 const initialAuthState: AuthState = {
@@ -24,8 +42,9 @@ const saveAuthState = (authState: AuthState): void => {
     localStorage.setItem('redstone_auth', JSON.stringify(authState));
   }
 };
-
 const API_URL = import.meta.env.VITE_API_BASE_URL + '/users';
+
+
 
 export const authService = {
   // Get current auth state
@@ -35,7 +54,7 @@ export const authService = {
 
   // Login
   login: async (username: string, password: string): Promise<AuthState> => {
-    const response = await fetch(`${API_URL}?username=${username}`);
+    const response = await fetch(`${API_URL}?username=${username}&password=${password}`);
     const users = await response.json();
 
     if (users.length === 0) {
@@ -43,13 +62,6 @@ export const authService = {
     }
 
     const user = users[0];
-
-    // Verify the password
-    const isPasswordValid = bcrypt.compareSync(password, user.password);
-    if (!isPasswordValid) {
-      throw new Error('Invalid credentials');
-    }
-
     const authState: AuthState = {
       user,
       isAuthenticated: true,

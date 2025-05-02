@@ -1,12 +1,14 @@
 {
-  "users": [{
-    "id": "1",
-    "username": "ALPHIE254",
-    "email": "admin@redstone.com",
-    "password": "$2b$10$eW5k3h1zQ9F5F1k3h1zQ9F5F1k3h1zQ9F5F1k3h1zQ9F5F1k3h1zQ9F5",
-    "role": "admin",
-    "avatar": "https://ui-avatars.com/api/?name=ALPHIE254&background=0D8ABC&color=fff"
-  }],
+    "users": [
+      {
+        "id": "1",
+        "username": "admin",
+        "email": "admin@redstone.com",
+        "password": "admin123",
+        "role": "admin",
+        "avatar": "https://ui-avatars.com/api/?name=Admin&background=0D8ABC&color=fff"
+      }
+    ],
   "products": [
     {
       "id": "1",
@@ -102,7 +104,7 @@
       "id": "7",
       "name": "Eternal Glow Diamond Ring",
       "description": "A brilliant diamond ring with a timeless design, reflecting pure elegance and love.",
-      "price": 7500,
+      "price": 75000,
       "images": [
         "https://images.pexels.com/photos/8398840/pexels-photo-8398840.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
         "https://ideogram.ai/assets/image/lossless/response/cW0ZuHYDRIGa1bdPp_iAnQ"
@@ -117,7 +119,7 @@
       "id": "8",
       "name": "Celestial Shine Diamond Ring",
       "description": "Modern diamond ring with a sleek band, perfect for marking life's milestones.",
-      "price": 7200,
+      "price": 72000,
       "images": [
         "https://images.pexels.com/photos/2849742/pexels-photo-2849742.jpeg?auto=compress&cs=tinysrgb&w=600",
         "https://ideogram.ai/assets/image/lossless/response/7iiEJG1nT8q4EAe6W5e6Wg"
