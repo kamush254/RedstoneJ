@@ -50,7 +50,7 @@
         "https://images.pexels.com/photos/12194315/pexels-photo-12194315.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
       ],
       "category": "bracelet",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2023-01-01T00:00:00.000Z",
       "updatedAt": "2023-01-01T00:00:00.000Z"
@@ -73,7 +73,7 @@
     {
       "id": "5",
       "name": "Luxury Diamond Watch",
-      "description": "A stunning sapphire pendant suspended from a delicate gold chain, a symbol of wisdom and royalty.",
+      "description": "A sophisticated watch with a diamond-studded bezel, perfect for special occasions.",
       "price": 7600,
       "images": [
         "https://images.pexels.com/photos/31050004/pexels-photo-31050004/free-photo-of-luxury-gold-and-silver-watch-on-blue-satin.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -88,7 +88,7 @@
     {
       "id": "6",
       "name": "Pearl Stud Earrings",
-      "description": "A vintage-inspired ruby brooch set in sterling silver, adding a touch of old-world glamour.",
+      "description": "Classic pearl stud earrings, a timeless accessory that adds elegance to any outfit.",
       "price": 9000,
       "images": [
         "https://images.pexels.com/photos/1413420/pexels-photo-1413420.jpeg?auto=compress&cs=tinysrgb&w=600",
@@ -110,7 +110,7 @@
         "https://ideogram.ai/assets/image/lossless/response/cW0ZuHYDRIGa1bdPp_iAnQ"
       ],
       "category": "ring",
-      "featured": true,
+      "featured": false,
       "inStock": true,
       "createdAt": "2025-01-01T00:00:00.000Z",
       "updatedAt": "2025-01-01T00:00:00.000Z"
@@ -186,7 +186,7 @@
         "https://ideogram.ai/assets/image/lossless/response/hPMWJz2ARsavWKImoAuKbg"
       ],
       "category": "watch",
-      "featured": false,
+      "featured": true,
       "inStock": true,
       "createdAt": "2025-01-02T00:00:00.000Z",
       "updatedAt": "2025-01-02T00:00:00.000Z"
@@ -276,7 +276,7 @@
         "https://images.pexels.com/photos/12026055/pexels-photo-12026055.jpeg?auto=compress&cs=tinysrgb&w=600"
       ],
       "category": "bracelet",
-      "featured": false,
+      "featured": true,
       "inStock": true,
       "createdAt": "2025-01-04T00:00:00.000Z",
       "updatedAt": "2025-01-04T00:00:00.000Z"
@@ -360,8 +360,8 @@
 "appointments": [
     {
       "id": "1",
-        "customerName": "Emma Johnson",
-        "customerEmail": "emma.johnson@example.com",
+        "customerName": "Emma Mwende",
+        "customerEmail": "emmawende67@gmail.com",
         "customerPhone": "+254712345678",
         "date": "2023-05-10",
         "time": "14:00",
@@ -372,8 +372,8 @@
       },
       {
         "id": "2",
-        "customerName": "Michael Chen",
-        "customerEmail": "michael.chen@example.com",
+        "customerName": "Michael Kiboi",
+        "customerEmail": "michaelkibs@gmail.com",
         "customerPhone": "+254723456789",
         "date": "2023-05-15",
         "time": "11:30",
