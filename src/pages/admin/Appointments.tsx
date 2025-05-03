@@ -396,67 +396,75 @@ const AdminAppointments: FC = () => {
 
         {/* Appointment Detail Dialog */}
         <Dialog open={isDetailDialogOpen} onOpenChange={setIsDetailDialogOpen}>
-          <DialogContent className="w-[95vw] max-w-md">
+            <DialogContent className="w-[95vw] max-w-[100%] sm:max-w-md h-[90vh] overflow-y-auto">
             <DialogHeader>
               <DialogTitle>Appointment Details</DialogTitle>
             </DialogHeader>
             
             {selectedAppointment && (
               <div className="py-4 space-y-4">
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-gray-500">Customer Information</h3>
-                  <p className="font-medium truncate">{selectedAppointment.customerName}</p>
-                  <p className="truncate">{selectedAppointment.customerEmail}</p>
-                  <p>{selectedAppointment.customerPhone}</p>
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-500">Customer Information</h3>
+                <div className="space-y-1">
+                <p className="font-medium">{selectedAppointment.customerName}</p>
+                <p className="break-all">{selectedAppointment.customerEmail}</p>
+                <p>{selectedAppointment.customerPhone}</p>
                 </div>
-                
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-gray-500">Appointment Details</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div>
-                      <p className="font-medium">Date:</p>
-                      <p>{formatDate(selectedAppointment.date)}</p>
-                    </div>
-                    <div>
-                      <p className="font-medium">Time:</p>
-                      <p>{selectedAppointment.time}</p>
-                    </div>
-                    <div className="col-span-2">
-                      <p className="font-medium">Reason:</p>
-                      <p className="capitalize">{selectedAppointment.reason}</p>
-                    </div>
-                    <div className="col-span-2">
-                      <p className="font-medium">Status:</p>
-                      <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(selectedAppointment.status)}`}>
-                        {selectedAppointment.status}
-                      </span>
-                    </div>
-                  </div>
+              </div>
+              
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-500">Appointment Details</h3>
+                <div className="grid grid-cols-2 gap-2">
+                <div className="col-span-2 sm:col-span-1">
+                  <p className="font-medium">Date:</p>
+                  <p>{formatDate(selectedAppointment.date)}</p>
                 </div>
-                
-                {selectedAppointment.notes && (
-                  <div className="space-y-2">
-                    <h3 className="text-sm font-medium text-gray-500">Notes</h3>
-                    <p className="text-gray-700 whitespace-pre-line">{selectedAppointment.notes}</p>
-                  </div>
-                )}
-                
-                <div className="space-y-2">
-                  <h3 className="text-sm font-medium text-gray-500">Booking Information</h3>
-                  <p>{new Date(selectedAppointment.createdAt).toLocaleDateString()}</p>
+                <div className="col-span-2 sm:col-span-1">
+                  <p className="font-medium">Time:</p>
+                  <p>{selectedAppointment.time}</p>
                 </div>
+                <div className="col-span-2">
+                  <p className="font-medium">Reason:</p>
+                  <p className="capitalize">{selectedAppointment.reason}</p>
+                </div>
+                <div className="col-span-2">
+                  <p className="font-medium">Status:</p>
+                  <span className={`inline-block px-2 py-1 rounded-full text-sm font-medium capitalize ${
+                  getStatusColor(selectedAppointment.status)
+                  }`}>
+                  {selectedAppointment.status}
+                  </span>
+                </div>
+                </div>
+              </div>
+
+              {selectedAppointment.notes && (
+                <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-500">Notes</h3>
+                <p className="text-gray-700 whitespace-pre-line">
+                  {selectedAppointment.notes}
+                </p>
+                </div>
+              )}
+
+              <div className="space-y-2">
+                <h3 className="text-sm font-medium text-gray-500">Booking Information</h3>
+                <p>
+                Booked on: {new Date(selectedAppointment.createdAt).toLocaleDateString()}
+                </p>
+              </div>
               </div>
             )}
             
             <DialogFooter>
               <Button
-                onClick={() => setIsDetailDialogOpen(false)}
-                className="w-full sm:w-auto"
+              onClick={() => setIsDetailDialogOpen(false)}
+              className="w-full sm:w-auto"
               >
-                Close
+              Close
               </Button>
             </DialogFooter>
-          </DialogContent>
+            </DialogContent>
         </Dialog>
 
         {/* Cancel Appointment Dialog (remains the same) */}
