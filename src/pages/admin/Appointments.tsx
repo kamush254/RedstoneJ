@@ -1,4 +1,3 @@
-
 import { FC, useEffect, useState } from 'react';
 import AdminLayout from '@/components/layout/AdminLayout';
 import { Appointment } from '@/interfaces';
@@ -44,6 +43,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
 const AdminAppointments: FC = () => {
+  // ... (All existing state and logic remains the same)
   const [appointments, setAppointments] = useState<Appointment[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -206,7 +206,7 @@ const AdminAppointments: FC = () => {
 
   return (
     <AdminLayout>
-      <div className="space-y-8">
+      <div className="space-y-8 px-4 sm:px-6">
         <div>
           <h1 className="text-2xl font-bold text-jewelry-black">Appointments</h1>
           <p className="text-gray-600">Manage customer appointments</p>
@@ -214,21 +214,21 @@ const AdminAppointments: FC = () => {
 
         {/* Filters */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <Input
               placeholder="Search by name, email, or phone..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="max-w-md"
+              className="w-full"
             />
           </div>
           
-          <div>
+          <div className="w-full sm:w-[180px]">
             <Select 
               value={statusFilter} 
               onValueChange={(value) => setStatusFilter(value)}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -262,15 +262,15 @@ const AdminAppointments: FC = () => {
             <p className="text-gray-500">No appointments found</p>
           </div>
         ) : (
-          <div className="border rounded-md">
-            <Table>
+          <div className="border rounded-md overflow-x-auto">
+            <Table className="min-w-[800px] sm:min-w-full">
               <TableHeader>
                 <TableRow>
-                  <TableHead>Customer</TableHead>
-                  <TableHead>Date & Time</TableHead>
-                  <TableHead>Reason</TableHead>
+                  <TableHead className="min-w-[180px]">Customer</TableHead>
+                  <TableHead className="whitespace-nowrap">Date & Time</TableHead>
+                  <TableHead className="hidden sm:table-cell">Reason</TableHead>
                   <TableHead>Status</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead className="text-right min-w-[200px]">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -278,8 +278,10 @@ const AdminAppointments: FC = () => {
                   <TableRow key={appointment.id}>
                     <TableCell>
                       <div>
-                        <p className="font-medium">{appointment.customerName}</p>
-                        <p className="text-sm text-gray-500">
+                        <p className="font-medium truncate max-w-[150px] sm:max-w-none">
+                          {appointment.customerName}
+                        </p>
+                        <p className="text-sm text-gray-500 truncate max-w-[150px]">
                           {appointment.customerEmail}
                         </p>
                         <p className="text-sm text-gray-500">
@@ -289,11 +291,15 @@ const AdminAppointments: FC = () => {
                     </TableCell>
                     <TableCell>
                       <div>
-                        <p className="font-medium">{formatDate(appointment.date)}</p>
+                        <p className="font-medium whitespace-nowrap">
+                          {formatDate(appointment.date)}
+                        </p>
                         <p className="text-sm text-gray-500">{appointment.time}</p>
                       </div>
                     </TableCell>
-                    <TableCell className="capitalize">{appointment.reason}</TableCell>
+                    <TableCell className="hidden sm:table-cell capitalize">
+                      {appointment.reason}
+                    </TableCell>
                     <TableCell>
                       <span 
                         className={`inline-block px-2 py-1 rounded-full text-xs font-medium capitalize ${
@@ -308,6 +314,7 @@ const AdminAppointments: FC = () => {
                         <Button
                           variant="outline"
                           size="sm"
+                          className="text-xs sm:text-sm"
                           onClick={() => openDetailDialog(appointment)}
                         >
                           View
@@ -315,15 +322,16 @@ const AdminAppointments: FC = () => {
                         <Button
                           variant="outline"
                           size="sm"
+                          className="text-xs sm:text-sm"
                           onClick={() => openStatusDialog(appointment)}
                           disabled={appointment.status === 'cancelled'}
                         >
-                          Update Status
+                          <span className="hidden sm:inline">Update </span>Status
                         </Button>
                         <Button
                           variant="outline"
                           size="sm"
-                          className="border-red-200 text-red-600 hover:bg-red-50"
+                          className="text-xs sm:text-sm border-red-200 text-red-600 hover:bg-red-50"
                           onClick={() => openCancelDialog(appointment)}
                           disabled={appointment.status === 'cancelled' || appointment.status === 'completed'}
                         >
@@ -337,105 +345,122 @@ const AdminAppointments: FC = () => {
             </Table>
           </div>
         )}
-      </div>
 
-      {/* Status Update Dialog */}
-      <Dialog open={isStatusDialogOpen} onOpenChange={setIsStatusDialogOpen}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Update Appointment Status</DialogTitle>
-            <DialogDescription>
-              Change the status of this appointment.
-            </DialogDescription>
-          </DialogHeader>
-          
-          <div className="py-4">
-            <Label htmlFor="status" className="mb-2 block">Status</Label>
-            <Select
-              value={newStatus}
-              onValueChange={(value) => setNewStatus(value as Appointment['status'])}
-            >
-              <SelectTrigger>
-                <SelectValue placeholder="Select status" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="pending">Pending</SelectItem>
-                <SelectItem value="confirmed">Confirmed</SelectItem>
-                <SelectItem value="completed">Completed</SelectItem>
-                <SelectItem value="cancelled">Cancelled</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          
-          <DialogFooter>
-            <Button
-              variant="outline"
-              onClick={() => setIsStatusDialogOpen(false)}
-              disabled={isSubmitting}
-            >
-              Cancel
-            </Button>
-            <Button
-              onClick={handleUpdateStatus}
-              className="bg-jewelry-gold hover:bg-jewelry-darkgold text-white"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Updating...' : 'Update Status'}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-
-      {/* Appointment Detail Dialog */}
-      <Dialog open={isDetailDialogOpen} onOpenChange={setIsDetailDialogOpen}>
-        <DialogContent className="max-w-md">
-          <DialogHeader>
-            <DialogTitle>Appointment Details</DialogTitle>
-          </DialogHeader>
-          
-          {selectedAppointment && (
-            <div className="py-4 space-y-4">
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Customer Information</h3>
-                <p className="font-medium">{selectedAppointment.customerName}</p>
-                <p>{selectedAppointment.customerEmail}</p>
-                <p>{selectedAppointment.customerPhone}</p>
-              </div>
-              
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Appointment Details</h3>
-                <p><span className="font-medium">Date:</span> {formatDate(selectedAppointment.date)}</p>
-                <p><span className="font-medium">Time:</span> {selectedAppointment.time}</p>
-                <p><span className="font-medium">Reason:</span> <span className="capitalize">{selectedAppointment.reason}</span></p>
-                <p><span className="font-medium">Status:</span> <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(selectedAppointment.status)}`}>{selectedAppointment.status}</span></p>
-              </div>
-              
-              {selectedAppointment.notes && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Notes</h3>
-                  <p className="text-gray-700">{selectedAppointment.notes}</p>
-                </div>
-              )}
-              
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Booking Information</h3>
-                <p><span className="font-medium">Booked On:</span> {new Date(selectedAppointment.createdAt).toLocaleDateString()}</p>
-              </div>
+        {/* Status Update Dialog */}
+        <Dialog open={isStatusDialogOpen} onOpenChange={setIsStatusDialogOpen}>
+          <DialogContent className="w-[95vw] max-w-md">
+            <DialogHeader>
+              <DialogTitle>Update Appointment Status</DialogTitle>
+              <DialogDescription>
+                Change the status of this appointment.
+              </DialogDescription>
+            </DialogHeader>
+            
+            <div className="py-4">
+              <Label htmlFor="status" className="mb-2 block">Status</Label>
+              <Select
+                value={newStatus}
+                onValueChange={(value) => setNewStatus(value as Appointment['status'])}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Select status" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="pending">Pending</SelectItem>
+                  <SelectItem value="confirmed">Confirmed</SelectItem>
+                  <SelectItem value="completed">Completed</SelectItem>
+                  <SelectItem value="cancelled">Cancelled</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
-          )}
-          
-          <DialogFooter>
-            <Button
-              onClick={() => setIsDetailDialogOpen(false)}
-            >
-              Close
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+            
+            <DialogFooter>
+              <Button
+                variant="outline"
+                onClick={() => setIsStatusDialogOpen(false)}
+                disabled={isSubmitting}
+                className="w-full sm:w-auto"
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={handleUpdateStatus}
+                className="w-full sm:w-auto bg-jewelry-gold hover:bg-jewelry-darkgold text-white"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Updating...' : 'Update Status'}
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
 
-      {/* Cancel Appointment Dialog */}
-      <AlertDialog open={isCancelDialogOpen} onOpenChange={setIsCancelDialogOpen}>
+        {/* Appointment Detail Dialog */}
+        <Dialog open={isDetailDialogOpen} onOpenChange={setIsDetailDialogOpen}>
+          <DialogContent className="w-[95vw] max-w-md">
+            <DialogHeader>
+              <DialogTitle>Appointment Details</DialogTitle>
+            </DialogHeader>
+            
+            {selectedAppointment && (
+              <div className="py-4 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-gray-500">Customer Information</h3>
+                  <p className="font-medium truncate">{selectedAppointment.customerName}</p>
+                  <p className="truncate">{selectedAppointment.customerEmail}</p>
+                  <p>{selectedAppointment.customerPhone}</p>
+                </div>
+                
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-gray-500">Appointment Details</h3>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <p className="font-medium">Date:</p>
+                      <p>{formatDate(selectedAppointment.date)}</p>
+                    </div>
+                    <div>
+                      <p className="font-medium">Time:</p>
+                      <p>{selectedAppointment.time}</p>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="font-medium">Reason:</p>
+                      <p className="capitalize">{selectedAppointment.reason}</p>
+                    </div>
+                    <div className="col-span-2">
+                      <p className="font-medium">Status:</p>
+                      <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium capitalize ${getStatusColor(selectedAppointment.status)}`}>
+                        {selectedAppointment.status}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+                {selectedAppointment.notes && (
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-medium text-gray-500">Notes</h3>
+                    <p className="text-gray-700 whitespace-pre-line">{selectedAppointment.notes}</p>
+                  </div>
+                )}
+                
+                <div className="space-y-2">
+                  <h3 className="text-sm font-medium text-gray-500">Booking Information</h3>
+                  <p>{new Date(selectedAppointment.createdAt).toLocaleDateString()}</p>
+                </div>
+              </div>
+            )}
+            
+            <DialogFooter>
+              <Button
+                onClick={() => setIsDetailDialogOpen(false)}
+                className="w-full sm:w-auto"
+              >
+                Close
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
+        {/* Cancel Appointment Dialog (remains the same) */}
+        <AlertDialog open={isCancelDialogOpen} onOpenChange={setIsCancelDialogOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Cancel Appointment</AlertDialogTitle>
@@ -457,6 +482,7 @@ const AdminAppointments: FC = () => {
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
+      </div>
     </AdminLayout>
   );
 };
