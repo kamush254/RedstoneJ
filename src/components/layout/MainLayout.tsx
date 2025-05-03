@@ -229,8 +229,8 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
                 </h3>
               </div>
               <p className="text-gray-300 leading-relaxed">
-                Crafting timeless elegance with precision and passion. 
-                Experience luxury jewelry that tells your unique story.
+              Your Destination for Exquisite Gemstone & Diamond Jewelry in Nairobi. 
+                
               </p>
               <div className="flex space-x-5">
                 <a href="#" className="text-gray-300 hover:text-jewelry-gold transition-colors">

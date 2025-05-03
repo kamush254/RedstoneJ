@@ -172,10 +172,10 @@ const Home: FC = () => {
               </h2>
               <div className="w-24 h-1 bg-jewelry-gold mb-6"></div>
               <p className="text-gray-600 mb-4">
-                At Redstone Jewelry, we believe that luxury is in the details. Each piece is meticulously crafted by our master jewelers, using only the finest materials and ethically sourced gemstones.
+              Step into Redstone Jewelry, Nairobi’s premier fine jewelry boutique. Explore our curated selection of stunning gemstone necklaces, elegant diamond rings, and timeless bracelets—all sourced from trusted, ethical suppliers.
               </p>
               <p className="text-gray-600 mb-6">
-                Our personalized consultation service ensures that every customer finds or creates the perfect piece to celebrate life's most precious moments.
+              Whether you’re marking a special occasion or elevating your everyday style, find the perfect piece that speaks to your unique taste.
               </p>
               <Link to="/appointment">
                 <Button 

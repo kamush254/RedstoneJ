@@ -29,9 +29,7 @@ const About = () => {
             className="text-lg md:text-xl text-gray-700 leading-relaxed mb-16 max-w-3xl mx-auto text-center"
           >
             <p className="mb-6">
-              At Redstone Jewelry, we believe in the art of crafting exquisite pieces that tell a story.
-              Our passionate artisans combine timeless designs with meticulous craftsmanship to bring
-              you jewelry that radiates elegance and sophistication for every occasion.
+            Our curated selection of certified diamond rings, vibrant gemstone necklaces, and elegant bracelets reflects Nairobi’s finest in ethical sourcing and luxury design. 
             </p>
             <div className="w-24 h-1 bg-jewelry-gold mx-auto mt-8"></div>
           </motion.div>
@@ -52,15 +50,11 @@ const About = () => {
             >
               <h2 className="text-3xl font-serif font-semibold mb-6 text-jewelry-gold">Our Legacy</h2>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                Founded with a vision to create exceptional jewelry, Redstone Jewelry has grown into a
-                trusted name in luxury embellishments. Each piece is carefully designed and hand-finished
-                to perfection using the finest materials.
+              Founded by Alphie Mutunga with a vision for luxury, Redstone Jewelry has become Nairobi’s most trusted name in fine gemstone and diamond adornments. Each piece in our curated collections is designed for timeless appeal and hand‑finished to perfection using ethically sourced diamonds, vibrant gemstones, and premium precious metals.
               </p>
               <h2 className="text-3xl font-serif font-semibold mb-6 text-jewelry-gold">Our Commitment</h2>
               <p className="text-gray-700 leading-relaxed">
-                We are committed to ethical sourcing, quality craftsmanship, and outstanding customer
-                service. Whether you seek a classic design or a bespoke creation, your satisfaction is
-                our highest priority.
+              At Redstone Jewelry, we uphold the highest standards of ethical sourcing, exceptional craftsmanship, and personalized customer service. Whether you’re drawn to a classic diamond solitaire or desire a bespoke gemstone creation, our expert team ensures a seamless experience from selection to delivery. Your satisfaction—and the story your jewelry tells—is our top priority.
               </p>
             </motion.div>
           </div>
