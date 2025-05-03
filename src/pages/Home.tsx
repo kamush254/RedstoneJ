@@ -62,9 +62,9 @@ const Home: FC = () => {
       {/* Dynamic Text Rotator */}
       <div className="overflow-hidden">
         <h1 className="text-4xl font-serif font-bold text-white leading-[1.15] [text-shadow:0_2px_12px_rgba(0,0,0,0.4)] motion-safe:animate-slide-up">
-          Timeless Elegance,<br />
+        Redstone Jewelry,<br />
           <span className="inline-block mt-2 motion-safe:animate-delayed-fade">
-            Exceptional Craftsmanship
+          Your Destination for Exquisite Gemstone & Diamond Jewelry in Nairobi
           </span>
         </h1>
       </div>

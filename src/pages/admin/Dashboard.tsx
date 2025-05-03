@@ -197,79 +197,48 @@ const AdminDashboard: FC = () => {
 
             {/* Quick Actions Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 animate-fade-in-up">
-              {[
+                {[
                 { 
-                  title: 'Product Management',
-                  desc: 'Manage your jewelry collection',
-                  link: '/admin/products',
+                  title: 'Products',
+                  desc: 'Total jewelry items',
+                  value: stats.totalProducts,
                   icon: '💎'
                 },
                 {
                   title: 'Appointments',
-                  desc: 'Handle customer bookings',
-                  link: '/admin/appointments',
+                  desc: 'Total bookings',
+                  value: stats.totalAppointments,
                   icon: '📅'
                 },
                 {
-                  title: 'Store Preview',
-                  desc: 'View customer-facing store',
-                  link: '/',
-                  icon: '👀',
-                  external: true
+                  title: 'Pending',
+                  desc: 'Pending appointments',
+                  value: stats.pendingAppointments,
+                  icon: '⏳'
                 }
-              ].map((card, index) => (
+                ].map((card, index) => (
                 <Card 
                   key={index}
-                  className="transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 border border-gray-100/50 bg-gradient-to-br from-white to-gray-50/50"
+                  className="transition-all duration-300 border border-gray-100/50 bg-gradient-to-br from-white to-gray-50/50"
                 >
                   <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-start gap-4">
-                      <span className="text-2xl sm:text-3xl">{card.icon}</span>
-                      <div>
-                      <h3 className="text-lg sm:text-xl font-semibold text-jewelry-black mb-1.5">
-                        {card.title}
-                      </h3>
-                      <p className="text-gray-500 text-sm sm:text-base mb-3">
-                        {card.desc}
-                      </p>
-                      {card.external ? (
-                        <a 
-                        href={card.link}
-                        className="inline-flex items-center gap-2 text-jewelry-gold hover:text-jewelry-darkgold font-medium text-sm sm:text-base transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >
-                        Access Now
-                        <svg 
-                          className="w-4 h-4 mt-0.5 transition-transform duration-200 group-hover:translate-x-1" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                        </a>
-                      ) : (
-                        <Link 
-                        href={card.link}
-                        className="inline-flex items-center gap-2 text-jewelry-gold hover:text-jewelry-darkgold font-medium text-sm sm:text-base transition-colors"
-                        >
-                        Access Now
-                        <svg 
-                          className="w-4 h-4 mt-0.5 transition-transform duration-200 group-hover:translate-x-1" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          viewBox="0 0 24 24"
-                        >
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/>
-                        </svg>
-                        </Link>
-                      )}
-                      </div>
+                  <div className="flex items-start gap-4">
+                    <span className="text-2xl sm:text-3xl">{card.icon}</span>
+                    <div>
+                    <h3 className="text-lg sm:text-xl font-semibold text-jewelry-black mb-1.5">
+                      {card.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm sm:text-base">
+                      {card.desc}
+                    </p>
+                    <p className="text-2xl font-bold text-jewelry-gold mt-2">
+                      {card.value}
+                    </p>
                     </div>
+                  </div>
                   </CardContent>
                 </Card>
-              ))}
+                ))}
             </div>
           </>
         )}
