@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import MainLayout from '@/components/layout/MainLayout';
 import ProductCard from '@/components/shared/ProductCard';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import { productService } from '@/services/productService';
 import { Product } from '@/interfaces';
 import backgroundImage from '@/assets/images/bg.jpg';
@@ -115,53 +116,105 @@ const Home: FC = () => {
 
 </section>
       {/* Featured Products Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
-        <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-jewelry-black mb-4">
-              Featured Collection
-            </h2>
-            <div className="w-24 h-1 bg-jewelry-gold mx-auto mb-4"></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our handpicked selection of exquisite pieces, each crafted with unparalleled attention to detail and design excellence.
-            </p>
-          </div>
+      {/* Featured Products Section */}
+<section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+  {/* Decorative elements */}
+  <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+    <div className="absolute top-20 -left-20 w-64 h-64 rounded-full bg-jewelry-lightgold opacity-10 blur-3xl"></div>
+    <div className="absolute bottom-10 -right-20 w-72 h-72 rounded-full bg-jewelry-lightgold opacity-10 blur-3xl"></div>
+  </div>
 
-          {loading ? (
-            <div className="flex justify-center py-12">
-              <div className="w-12 h-12 border-4 border-jewelry-lightgold border-t-jewelry-gold rounded-full animate-spin"></div>
-            </div>
-          ) : error ? (
-            <div className="text-center py-12">
-              <p className="text-red-500">{error}</p>
-              <Button 
-                onClick={() => window.location.reload()} 
-                className="mt-4 bg-jewelry-gold hover:bg-jewelry-darkgold text-white transition-colors duration-300"
-              >
-                Try Again
-              </Button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProducts.map((product) => (
-                <ProductCard key={product.id} product={product} featured={true} />
-              ))}
-            </div>
-          )}
+  <div className="container mx-auto relative z-10">
+    <div className="text-center mb-16">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-serif font-bold text-jewelry-black mb-6"
+      >
+        Featured Collection
+      </motion.h2>
+      
+      <motion.div 
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="w-24 h-1 bg-jewelry-gold mx-auto mb-6 transform origin-center"
+      ></motion.div>
+      
+      <motion.p 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        className="text-gray-600 max-w-2xl mx-auto text-lg leading-relaxed"
+      >
+        Discover our handpicked selection of exquisite pieces, each crafted with unparalleled attention to detail and design excellence.
+      </motion.p>
+    </div>
 
-          <div className="text-center mt-12">
-            <Link to="/products">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-jewelry-gold text-jewelry-gold transition-colors duration-300 hover:bg-jewelry-gold hover:text-white"
-              >
-                View Full Collection
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+    {loading ? (
+      <div className="flex justify-center py-20">
+        <motion.div 
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+          className="w-16 h-16 border-4 border-jewelry-lightgold border-t-jewelry-gold rounded-full"
+        ></motion.div>
+      </div>
+    ) : error ? (
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="text-center py-12"
+      >
+        <p className="text-red-500 text-lg mb-6">{error}</p>
+        <Button 
+          onClick={() => window.location.reload()} 
+          className="mt-4 bg-jewelry-gold hover:bg-jewelry-darkgold text-white transition-all duration-300 transform hover:scale-105 px-8 py-3 rounded-full shadow-lg hover:shadow-xl"
+        >
+          Try Again
+        </Button>
+      </motion.div>
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {featuredProducts.map((product, index) => (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            whileHover={{ y: -10 }}
+          >
+            <ProductCard 
+              product={product} 
+              featured={true} 
+              className="transition-all duration-300 hover:shadow-2xl hover:border-jewelry-lightgold"
+            />
+          </motion.div>
+        ))}
+      </div>
+    )}
+
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.6 }}
+      className="text-center mt-16"
+    >
+      <Link to="/products">
+        <Button 
+          variant="outline" 
+          size="lg"
+          className="border-2 border-jewelry-gold text-jewelry-gold hover:bg-jewelry-gold hover:text-white transition-all duration-300 transform hover:scale-105 px-10 py-4 rounded-full font-medium text-lg shadow-sm hover:shadow-md"
+        >
+          View Full Collection
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </Button>
+      </Link>
+    </motion.div>
+  </div>
+</section>
 
       {/* Luxury Experience Section */}
       <section className="py-16 px-4 sm:px-6 bg-gray-50">
