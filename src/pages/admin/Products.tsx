@@ -1,4 +1,3 @@
-
 import { FC, useEffect, useState } from 'react';
 import AdminLayout from '@/components/layout/AdminLayout';
 import { Product } from '@/interfaces';
@@ -48,6 +47,7 @@ import { toast } from '@/components/ui/use-toast';
 import { Switch } from '@/components/ui/switch';
 
 const AdminProducts: FC = () => {
+  // ... (All previous state and logic remains exactly the same)
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -285,38 +285,37 @@ const AdminProducts: FC = () => {
 
   return (
     <AdminLayout>
-      <div className="space-y-8">
+      <div className="space-y-8 px-4 sm:px-6">
+        {/* Header Section */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-jewelry-black">Products</h1>
             <p className="text-gray-600">Manage your jewelry collection</p>
           </div>
-          
           <Button
             onClick={handleAddProduct}
-            className="bg-jewelry-gold hover:bg-jewelry-darkgold text-white"
+            className="bg-jewelry-gold hover:bg-jewelry-darkgold text-white w-full sm:w-auto"
           >
             Add New Product
           </Button>
         </div>
 
-        {/* Filters */}
+        {/* Filters Section */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <div className="flex-1">
+          <div className="flex-1 w-full">
             <Input
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="max-w-md"
+              className="w-full"
             />
           </div>
-          
-          <div>
+          <div className="w-full sm:w-[180px]">
             <Select 
               value={categoryFilter} 
               onValueChange={(value) => setCategoryFilter(value)}
             >
-              <SelectTrigger className="w-[180px]">
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Category" />
               </SelectTrigger>
               <SelectContent>
@@ -358,16 +357,16 @@ const AdminProducts: FC = () => {
             </Button>
           </div>
         ) : (
-          <div className="border rounded-md">
-            <Table>
+          <div className="border rounded-md overflow-x-auto">
+            <Table className="min-w-[800px] sm:min-w-full">
               <TableHeader>
                 <TableRow>
-                  <TableHead className="w-[80px]">Image</TableHead>
+                  <TableHead className="w-[60px] sm:w-[80px]">Image</TableHead>
                   <TableHead>Name</TableHead>
-                  <TableHead>Category</TableHead>
-                  <TableHead>Price</TableHead>
-                  <TableHead className="text-center">Featured</TableHead>
-                  <TableHead className="text-center">In Stock</TableHead>
+                  <TableHead className="hidden sm:table-cell">Category</TableHead>
+                  <TableHead className="hidden xs:table-cell">Price</TableHead>
+                  <TableHead className="text-center hidden sm:table-cell">Featured</TableHead>
+                  <TableHead className="text-center hidden sm:table-cell">In Stock</TableHead>
                   <TableHead className="text-right">Actions</TableHead>
                 </TableRow>
               </TableHeader>
@@ -375,7 +374,7 @@ const AdminProducts: FC = () => {
                 {filteredProducts.map((product) => (
                   <TableRow key={product.id}>
                     <TableCell>
-                      <div className="w-16 h-16 rounded overflow-hidden bg-gray-100">
+                      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden bg-gray-100">
                         {product.images[0] ? (
                           <img
                             src={product.images[0]}
@@ -392,21 +391,23 @@ const AdminProducts: FC = () => {
                     <TableCell>
                       <div>
                         <p className="font-medium text-jewelry-black">{product.name}</p>
-                        <p className="text-sm text-gray-500 truncate max-w-[200px]">
+                        <p className="text-sm text-gray-500 truncate max-w-[150px] xs:max-w-[200px]">
                           {product.description}
                         </p>
                       </div>
                     </TableCell>
-                    <TableCell className="capitalize">{product.category}</TableCell>
-                    <TableCell>{formatPrice(product.price)}</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="hidden sm:table-cell capitalize">
+                      {product.category}
+                    </TableCell>
+                    <TableCell className="hidden xs:table-cell">{formatPrice(product.price)}</TableCell>
+                    <TableCell className="text-center hidden sm:table-cell">
                       {product.featured ? (
                         <span className="inline-block w-3 h-3 bg-jewelry-gold rounded-full"></span>
                       ) : (
                         <span className="inline-block w-3 h-3 bg-gray-200 rounded-full"></span>
                       )}
                     </TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center hidden sm:table-cell">
                       {product.inStock ? (
                         <span className="inline-block px-2 py-1 text-xs font-medium text-green-600 bg-green-100 rounded-full">
                           In Stock
@@ -422,6 +423,7 @@ const AdminProducts: FC = () => {
                         <Button
                           variant="outline"
                           size="sm"
+                          className="text-xs sm:text-sm"
                           onClick={() => handleEditProduct(product)}
                         >
                           Edit
@@ -431,7 +433,7 @@ const AdminProducts: FC = () => {
                             <Button
                               variant="outline"
                               size="sm"
-                              className="border-red-200 text-red-600 hover:bg-red-50"
+                              className="text-xs sm:text-sm border-red-200 text-red-600 hover:bg-red-50"
                               onClick={() => {
                                 setDeleteProductId(product.id);
                                 setIsDeleteDialogOpen(true);
@@ -470,167 +472,172 @@ const AdminProducts: FC = () => {
             </Table>
           </div>
         )}
-      </div>
 
-      {/* Add/Edit Product Dialog */}
-      <Dialog open={isAddEditDialogOpen} onOpenChange={setIsAddEditDialogOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle>
-              {formMode === 'add' ? 'Add New Product' : 'Edit Product'}
-            </DialogTitle>
-            <DialogDescription>
-              {formMode === 'add' 
-                ? 'Add a new product to your collection.' 
-                : 'Update the details of your existing product.'}
-            </DialogDescription>
-          </DialogHeader>
-          
-          <form onSubmit={handleSubmitForm}>
-            <div className="grid gap-6 py-4">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Product Name *</Label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Diamond Eternity Ring"
-                    required
-                  />
-                </div>
-                
-                <div className="space-y-2">
-                  <Label htmlFor="price">Price (KSH) *</Label>
-                  <Input
-                    id="price"
-                    name="price"
-                    type="number"
-                    value={formData.price}
-                    onChange={handleInputChange}
-                    placeholder="85000"
-                    min="0"
-                    step="1"
-                    required
-                  />
-                </div>
-              </div>
-              
-              <div className="space-y-2">
-                <Label htmlFor="description">Description *</Label>
-                <Textarea
-                  id="description"
-                  name="description"
-                  value={formData.description}
-                  onChange={handleInputChange}
-                  placeholder="Detailed description of the product..."
-                  className="min-h-[100px]"
-                  required
-                />
-              </div>
-              
-              <div className="space-y-2">
-                <Label>Product Images</Label>
-                <div className="grid grid-cols-1 gap-4">
-                  {[0, 1, 2].map((index) => (
-                    <div key={index} className="flex items-center gap-2">
-                      <Input
-                        value={formData.images?.[index] || ''}
-                        onChange={(e) => handleImageChange(index, e.target.value)}
-                        placeholder={`Image URL ${index + 1}${index === 0 ? ' (Primary) *' : ''}`}
-                        required={index === 0}
-                      />
-                      {formData.images?.[index] && (
-                        <div className="flex-shrink-0 w-12 h-12 border rounded overflow-hidden">
-                          <img
-                            src={formData.images[index]}
-                            alt={`Preview ${index + 1}`}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              // Set a placeholder if image fails to load
-                              (e.target as HTMLImageElement).src = 'https://placehold.co/200x200?text=Error';
-                            }}
-                          />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  <p className="text-xs text-gray-500">
-                    Please provide image URLs. At least one primary image is required.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="category">Category *</Label>
-                  <Select
-                    value={formData.category}
-                    onValueChange={(value) => handleSelectChange('category', value)}
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select category" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="ring">Ring</SelectItem>
-                      <SelectItem value="necklace">Necklace</SelectItem>
-                      <SelectItem value="bracelet">Bracelet</SelectItem>
-                      <SelectItem value="earring">Earring</SelectItem>
-                      <SelectItem value="watch">Watch</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="flex items-center space-x-2">
-                  <div className="space-y-0.5">
-                    <Label htmlFor="featured">Featured Product</Label>
-                    <p className="text-sm text-gray-500">Show on homepage</p>
-                  </div>
-                  <Switch
-                    id="featured"
-                    checked={formData.featured}
-                    onCheckedChange={(checked) => handleCheckboxChange('featured', checked)}
-                  />
-                </div>
-                
-                <div className="flex items-center space-x-2">
-                  <div className="space-y-0.5">
-                    <Label htmlFor="inStock">In Stock</Label>
-                    <p className="text-sm text-gray-500">Available for booking</p>
-                  </div>
-                  <Switch
-                    id="inStock"
-                    checked={formData.inStock}
-                    onCheckedChange={(checked) => handleCheckboxChange('inStock', checked)}
-                  />
-                </div>
-              </div>
-            </div>
+        {/* Add/Edit Product Dialog */}
+        <Dialog open={isAddEditDialogOpen} onOpenChange={setIsAddEditDialogOpen}>
+          <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto">
+            <DialogHeader>
+              <DialogTitle>
+                {formMode === 'add' ? 'Add New Product' : 'Edit Product'}
+              </DialogTitle>
+              <DialogDescription>
+                {formMode === 'add' 
+                  ? 'Add a new product to your collection.' 
+                  : 'Update the details of your existing product.'}
+              </DialogDescription>
+            </DialogHeader>
             
-            <DialogFooter>
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setIsAddEditDialogOpen(false)}
-                disabled={isSubmitting}
-              >
-                Cancel
-              </Button>
-              <Button
-                type="submit"
-                className="bg-jewelry-gold hover:bg-jewelry-darkgold text-white"
-                disabled={isSubmitting}
-              >
-                {isSubmitting 
-                  ? (formMode === 'add' ? 'Adding...' : 'Updating...') 
-                  : (formMode === 'add' ? 'Add Product' : 'Update Product')}
-              </Button>
-            </DialogFooter>
-          </form>
-        </DialogContent>
-      </Dialog>
+            <form onSubmit={handleSubmitForm}>
+              <div className="grid gap-4 py-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Product Name *</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Diamond Eternity Ring"
+                      required
+                      className="w-full"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Label htmlFor="price">Price (KSH) *</Label>
+                    <Input
+                      id="price"
+                      name="price"
+                      type="number"
+                      value={formData.price}
+                      onChange={handleInputChange}
+                      placeholder="85000"
+                      min="0"
+                      step="1"
+                      required
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+                
+                <div className="space-y-2">
+                  <Label htmlFor="description">Description *</Label>
+                  <Textarea
+                    id="description"
+                    name="description"
+                    value={formData.description}
+                    onChange={handleInputChange}
+                    placeholder="Detailed description of the product..."
+                    className="min-h-[100px] w-full"
+                    required
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <Label>Product Images</Label>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[0, 1, 2].map((index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <Input
+                          value={formData.images?.[index] || ''}
+                          onChange={(e) => handleImageChange(index, e.target.value)}
+                          placeholder={`Image URL ${index + 1}${index === 0 ? ' (Primary) *' : ''}`}
+                          required={index === 0}
+                          className="flex-1"
+                        />
+                        {formData.images?.[index] && (
+                          <div className="flex-shrink-0 w-12 h-12 border rounded overflow-hidden">
+                            <img
+                              src={formData.images[index]}
+                              alt={`Preview ${index + 1}`}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                (e.target as HTMLImageElement).src = 'https://placehold.co/200x200?text=Error';
+                              }}
+                            />
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                    <p className="text-xs text-gray-500">
+                      Please provide image URLs. At least one primary image is required.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="category">Category *</Label>
+                    <Select
+                      value={formData.category}
+                      onValueChange={(value) => handleSelectChange('category', value)}
+                    >
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Select category" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="ring">Ring</SelectItem>
+                        <SelectItem value="necklace">Necklace</SelectItem>
+                        <SelectItem value="bracelet">Bracelet</SelectItem>
+                        <SelectItem value="earring">Earring</SelectItem>
+                        <SelectItem value="watch">Watch</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
+                  <div className="flex items-center justify-between md:block space-x-2">
+                    <div className="space-y-0.5">
+                      <Label htmlFor="featured">Featured Product</Label>
+                      <p className="text-sm text-gray-500 hidden md:block">Show on homepage</p>
+                    </div>
+                    <Switch
+                      id="featured"
+                      checked={formData.featured}
+                      onCheckedChange={(checked) => handleCheckboxChange('featured', checked)}
+                    />
+                  </div>
+                  
+                  <div className="flex items-center justify-between md:block space-x-2">
+                    <div className="space-y-0.5">
+                      <Label htmlFor="inStock">In Stock</Label>
+                      <p className="text-sm text-gray-500 hidden md:block">Available for booking</p>
+                    </div>
+                    <Switch
+                      id="inStock"
+                      checked={formData.inStock}
+                      onCheckedChange={(checked) => handleCheckboxChange('inStock', checked)}
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              <DialogFooter>
+                <div className="flex flex-col sm:flex-row gap-2 w-full">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setIsAddEditDialogOpen(false)}
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto"
+                  >
+                    Cancel
+                  </Button>
+                  <Button
+                    type="submit"
+                    className="w-full sm:w-auto bg-jewelry-gold hover:bg-jewelry-darkgold text-white"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting 
+                      ? (formMode === 'add' ? 'Adding...' : 'Updating...') 
+                      : (formMode === 'add' ? 'Add Product' : 'Update Product')}
+                  </Button>
+                </div>
+              </DialogFooter>
+            </form>
+          </DialogContent>
+        </Dialog>
+      </div>
     </AdminLayout>
   );
 };
