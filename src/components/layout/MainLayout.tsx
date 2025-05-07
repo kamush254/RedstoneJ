@@ -291,7 +291,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
                 </div>
                 <div>
                   <p className="text-white font-medium mb-1">Email</p>
-                  <p className="text-gray-300">info@redstonejewelry.com</p>
+                  <p className="text-gray-300">Mutungaalfie2@gmail.com</p>
                 </div>
               </address>
             </div>
