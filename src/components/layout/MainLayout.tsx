@@ -281,7 +281,7 @@ const MainLayout: FC<MainLayoutProps> = ({ children }) => {
                   <p className="text-gray-300">
                     Tom Mboya Street,<br/>
                     Odeon Midway Mall,<br/>
-                    1st Floor Shop U13<br/>
+                    1st Floor Shop U 1<br/>
                     Nairobi, Kenya
                   </p>
                 </div>
